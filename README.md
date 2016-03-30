@@ -3,7 +3,7 @@
 ---
 
 『OnePiece』，看过『海贼王』的同学应该知道『OnePiece』是怎么样的一个含义与意义。  
-我恬不知耻的建这个『OnePiece』库，是想把自己"毕生"所学都留下在这里，期待有人真的能把它当成『OnePiece』！！！  
+我恬不知耻的建这个『OnePiece』库，是想把自己"毕生"所学都留下在这里，朝着把它做成『OnePiece』的目标前进！！！  
 
 
 本『OnePiece』的秘宝包括但不限于以下内容：  
@@ -36,9 +36,14 @@
 非常欢迎提issue！！！
 
 
-## 目录
+## 航行记录仪  
+
 ### 读书笔记
 
-#### [EffectiveJava](./ReadingNotes/EffectiveJava/README.md)
+
+|        书名     | 状态     	  |推荐指数    |	评价  |	最后更新时间  |
+| :-------------:|:-------------:|:-------------:|:-------------:|
+| [EffectiveJava](./ReadingNotes/EffectiveJava)  |  阅读第4章中|  9  |Java进阶必备| 2016年3月30日
+
 
 

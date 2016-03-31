@@ -46,4 +46,9 @@
 | [EffectiveJava](./ReadingNotes/EffectiveJava)  |  阅读第4章中|  9  |Java进阶必备| 2016年3月30日|
 
 
+### 资源集合
+
+- [Android架构](./android_architecture.md)
+
+
 

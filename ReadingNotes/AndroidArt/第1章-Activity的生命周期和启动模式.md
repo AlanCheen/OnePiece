@@ -61,6 +61,8 @@ PS:`onSaveInstanceState`如下情况会调用:
 1. 启动了新的Activity  
 2. 按了Home键等等    
 
+另外:可以在onCreate里判断bundle是否为null来判断是新建还是重新创建  
+
 
 #### View 的恢复
 A系统默认做了一定的恢复,如视图结构,LV的滑动的位置等等(View也有save,restore方法)  
@@ -83,4 +85,10 @@ Configuration改变的时候系统默认会重建Activity,如果我不想重建,
 so,一般给Activity配上这个就行了:  
 `android:configChanges="orientation|screenSize|keyboardHidden"`  
 
+## 启动模式
 
+1. Standard 标准模式,默认的启动模式,每次启动都会新建一个Activity实例
+
+
+
+需要注意的是

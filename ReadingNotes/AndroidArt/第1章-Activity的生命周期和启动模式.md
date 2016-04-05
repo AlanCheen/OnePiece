@@ -87,8 +87,56 @@ so,一般给Activity配上这个就行了:
 
 ## 启动模式
 
-1. Standard 标准模式,默认的启动模式,每次启动都会新建一个Activity实例
+- 1. Standard   
+
+标准模式,默认的启动模式,每次启动都会新建一个Activity实例  
 
 
 
-需要注意的是
+需要注意的是当使用ApplicationContext去启动Standard模式的Activity的时候会报错,说需要添加NEW_TASK 的标记  
+
+为什么呢?  
+
+因为Activity启动需要任务栈,而用Standard模式去启动Activity,默认会进入启动它的Activity所属的任务栈中,而非Activity类型的Context并没有所谓的任务栈.  
+
+ABC--启动C->ABC
+
+- 2. SingleTop  
+
+栈顶复用模式,如果新的Activity已位于栈顶,那么不会重新创建Activity,而是回调`onNewIntent`方法  
+
+`onNewIntent-->onResume`
+
+ABC--启动C--> ABC  
+
+- 3. SingleTask
+
+栈内复用模式,只要占中存在都不会重新创建,并且也是回调`onNewIntent`  
+另外需要注意的是,该模式拥有**clearTop** 的效果,会把位于它顶上的Activity全部出栈(PS:必须同一个栈)  
+
+如: ABCDE--启动C(SingleTask)--> ABC  
+
+- 4. SingleInstance  
+
+单实例模式  栈内单例,一个Activity实例独占一个任务栈,可以说整个手机都只有一个实例  
+
+
+### 任务栈
+
+TaskAffinity(任务相关性),**标识了一个Activity的任务栈名称**,*默认为应用的包名*(万能的包名!)      
+
+我们可以在清单文件里配置,也可以为每个Activity配置不同的值,但是需要注意的是它**不能跟包名相同,并且必须要包含`.`分隔符!**  
+
+并且TaskAffinity属性主要和SingleTask或者`allowTaskReparenting`配对使用,在其他情况下没有意义.  
+
+1. TaskAffinity和SingleTask配合: TaskAffinity的值为该模式的任务栈的名字
+2. TaskAffinity和allowTaskReparenting 配合就比较复杂了:
+
+
+
+
+
+
+
+
+

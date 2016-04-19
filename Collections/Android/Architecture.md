@@ -1,9 +1,14 @@
 # Android 架构
 
-Google官方出品：  
+收录一些关于Android架构的资源  
+
+## Google官方出品
+Google官方出品:  
 [android-architecture
 ](https://github.com/googlesamples/android-architecture)
 
+
+其他的一些文章、Demo、App:  
 
 ## [MVP](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93presenter)
 
@@ -12,32 +17,47 @@ Google官方出品：
 ](http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2016/0225/3994.html)  
 
 [MVP IN ANDROID, PART 1](http://www.tinmegali.com/en/model-view-presenter-android-part-1/)  
-[MVP IN ANDROID, PART 2](http://www.tinmegali.com/en/model-view-presenter-mvp-in-android-part-2/)
-[MVP IN ANDROID, PART 3](http://www.tinmegali.com/en/)
+[MVP IN ANDROID, PART 2](http://www.tinmegali.com/en/model-view-presenter-mvp-in-android-part-2/)  
+[MVP IN ANDROID, PART 3](http://www.tinmegali.com/en/)    
+
 [Android MVP 模式 简单易懂的介绍方式
 ](http://zhuanlan.zhihu.com/p/20312610)
 
 [android-guidelines](https://github.com/ribot/android-guidelines/blob/master/architecture_guidelines/android_architecture.md)
 
-### App|Demo
+[Android MVP 详解（上）](http://www.jianshu.com/p/9a6845b26856)  
+[Android MVP 详解（下）
+](http://www.jianshu.com/p/0590f530c617)
+
+[Android官方MVP架构示例项目解析](http://mp.weixin.qq.com/s?__biz=MzA3ODg4MDk0Ng==&mid=403539764&idx=1&sn=d30d89e6848a8e13d4da0f5639100e5f&scene=0)  
+
+[一种在android中实现MVP模式的新思路](https://github.com/hehonghui/android-tech-frontier/tree/master/androidweekly/%E4%B8%80%E7%A7%8D%E5%9C%A8android%E4%B8%AD%E5%AE%9E%E7%8E%B0MVP%E6%A8%A1%E5%BC%8F%E7%9A%84%E6%96%B0%E6%80%9D%E8%B7%AF)
+
+### App||Demo
 [MVP Android Example](https://github.com/antoniolg/androidmvp)
 
 [android-boilerplate](https://github.com/ribot/android-boilerplate)  
 
-## Android-CleanArchitecture:
+[murmur](https://github.com/nekocode/murmur)
 
-<https://github.com/android10/Android-CleanArchitecture>
+## CleanArchitecture
+
+### 文章
+[使用 Clean 架构开发 Android 应用详细指南](http://gold.xitu.io/entry/56d69ef2df0eea0051fd422e?utm_source=leopost&utm_medium=20160306&utm_campaign=weibo)
 
 
-## MVVM
-
+### Demo
+[Android-CleanArchitecture](https://github.com/android10/Android-CleanArchitecture)  
 
 
 ## MVPVM
 
-### 文章
-
 [MVPVM in Action, 谁告诉你MVP和MVVM是互斥的](http://blog.zhaiyifan.cn/2016/03/16/android-new-project-from-0-p3/)  
 
 
+## MVVM
+//todo
 ## Flux
+
+[实践移动端的 Flux 架构
+](http://www.wangchenlong.org/2016/03/12/1602/apply-flux-architecture/)

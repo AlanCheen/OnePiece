@@ -42,6 +42,10 @@
 非常欢迎提issue！！！
 
 
+## Contributors
+
+[vivian](https://github.com/vivian8725118)  
+
 ## 航行记录仪  
 
 ### 读书笔记

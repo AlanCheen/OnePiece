@@ -55,7 +55,7 @@
 
 ### 资源集合
 
-- [Android架构](./android_architecture.md)
+- [Android架构](./Collections/Android/Architecture.md)
 
 
 

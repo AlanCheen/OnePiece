@@ -72,7 +72,7 @@ proguard & multidex
 
 dexposed **不支持art(5.0+)** 比较**致命**，所以最开始就被排除了    
 
-Nuwa HotFix DroidFix 都基于ClassLoader,兼容性以及稳定性好，支持2.3~6.0,对于启动速度有影响，补丁**重启后才能生效** 
+Nuwa HotFix DroidFix 都基于ClassLoader,兼容性以及稳定性好，支持4.0~6.0,对于启动速度有影响，补丁**重启后才能生效** 
 
 AndFix,支持2.3~6.0，但是兼容性以及稳定性较差，关键是**不需要重启**    
 

@@ -32,7 +32,7 @@ A 启动 B
 ### 异常状态
 
 Activity的销毁与重建涉及到这两方法:  
-1. `onSaveInstanceState(@Nullable Bundle state)`    系统会调用它来保存状态,以便之后恢复
+1. `onSaveInstanceState(@Nullable Bundle state)`    系统会调用它来保存状态,以便之后恢复  
 2. `onRestoreInstanceState(@NonNull Bundle state)`  为系统恢复所用
  
 
@@ -67,7 +67,7 @@ PS:`onSaveInstanceState`如下情况会调用:
 #### View 的恢复
 A系统默认做了一定的恢复,如视图结构,LV的滑动的位置等等(View也有save,restore方法)  
 
-	> PS 看到有的文章说解决Fragment重叠的问题,就是注释掉Activity的save方法,简直是误人子弟!!!
+	> PS 看到有的文章说解决Fragment重叠的问题,就是注释掉Activity的onSaveInstanceState方法,简直是误人子弟!!!有机会以后讲    
 
 扯远了,保存和恢复View的层次结构,系统的工作流程是这样子的:  
 Activity==>Window==>DecorView==>ContentView==>View  
@@ -90,8 +90,6 @@ so,一般给Activity配上这个就行了:
 - 1. Standard   
 
 标准模式,默认的启动模式,每次启动都会新建一个Activity实例  
-
-
 
 需要注意的是当使用ApplicationContext去启动Standard模式的Activity的时候会报错,说需要添加NEW_TASK 的标记  
 

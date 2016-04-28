@@ -50,9 +50,9 @@ ps：其实大多数情况都是Evernote比较好用，有一个情况就是如�
 git GUI 工具，挺不错的
 
 ## [欧路词典](http://www.eudic.net/eudic/mac_dictionary.aspx)
-![Alt text](http://www.eudic.net/image/eudic/Mac/eumac8.png)
-![Alt text](http://www.eudic.net/image/eudic/Mac/eumac6.png)
-<!-- <img src="http://www.eudic.net/image/eudic/Mac/eumac6.png" width = "600" height = "400" align=center />-->
+
+![Alt text](https://github.com/vivian8725118/vivian-blogs/blob/master/imgs/oulu.png?raw=true)
+
 词典，非常方便。配合[Vocabulary.com](https://www.vocabulary.com/)的词库，6到起飞。跟有道词典的不同是有道词典很多是从网上搜索来抓取的解释，欧路词典更多的像一本真正的词典。
 ## [网易云音乐](https://itunes.apple.com/cn/app/wang-yi-yun-yin-le/id944848654?mt=12)
 
@@ -63,6 +63,7 @@ git GUI 工具，挺不错的
 
 ## [Sketch](https://www.sketchapp.com/)
 ![Alt text](https://github.com/vivian8725118/vivian-blogs/blob/master/imgs/sketch.png?raw=true)
+
 设计界新贵，写程序时看尺寸和颜色也很方便。这个软件会让程序猿感觉自己都可以做简单的设计了。配套的 [Sketch素材网站](http://www.sketchs.cn/)，上边的一些素材可以直接下载，非常方便。(当然还有一个常用的技巧，就是做表情包。。。)
 
 ## [Zeplin](https://zeplin.io/)
@@ -70,6 +71,7 @@ git GUI 工具，挺不错的
 
 ## [Licecap]()
 ![Alt text](https://github.com/vivian8725118/vivian-blogs/blob/master/imgs/LiceCap.png?raw=true)
+
 小巧的录屏工具  
 
 ## [CheatSheet](https://www.mediaatelier.com/CheatSheet/)

@@ -20,6 +20,7 @@
 设置快捷键启动APP 很方便  
 
 ## [CleanMyMac](http://macpaw.com/cleanmymac)
+![Alt text](https://github.com/vivian8725118/vivian-blogs/blob/master/imgs/CleanMyMac.png?raw=true)
 清理工具
 
 ## [Bartender](https://www.macbartender.com/)
@@ -30,6 +31,7 @@
 再也不用自己记密码了  
 
 ## [Dash](https://kapeli.com/dash)
+![Alt text](https://github.com/vivian8725118/vivian-blogs/blob/master/imgs/dash.png?raw=true)
 离线文档神器，跟许多IDE都能一起工作，如AS，`shift+cmd+d`直接查看该类文档，非常方便
 
 ## [Vim]()

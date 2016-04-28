@@ -37,7 +37,7 @@
 vim配置，自动安装很多工具 [autoconfig-mac-vimrc](https://github.com/barretlee/autoconfig-mac-vimrc)
 
 ## [Reeder](https://itunes.apple.com/us/app/reeder-3/id880001334?mt=12)
-
+![Alt text](https://github.com/vivian8725118/vivian-blogs/blob/master/imgs/Reeder.png?raw=true)
 RSS 阅读器
 
 ## [Pocket](https://getpocket.com/)

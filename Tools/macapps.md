@@ -36,8 +36,11 @@
 离线文档神器，跟许多IDE都能一起工作，如AS，`shift+cmd+d`直接查看该类文档，非常方便
 
 ## [Vim]()
-
+//todo  
 vim配置，自动安装很多工具 [autoconfig-mac-vimrc](https://github.com/barretlee/autoconfig-mac-vimrc)
+
+## [PostMan]()
+API调试工具
 
 ## [Reeder](https://itunes.apple.com/us/app/reeder-3/id880001334?mt=12)
 <img src="https://github.com/vivian8725118/vivian-blogs/blob/master/imgs/Reeder.png?raw=true" width="550" height="340"></img>
@@ -49,10 +52,20 @@ RSS 阅读器
 ## [Evernote](https://www.yinxiang.com/?from=evernote)
 记笔记用，支持各个平台，Chrome插件，完爆有道云。
 ps：其实大多数情况都是Evernote比较好用，有一个情况就是如果你的笔记中存在大量高清图片的话，这时候Evernote是对上传大量图片收费的，有道是免费的。所以，当这种情况的时候才会选择有道，哈哈，机智如我。
+
+
+## [Atom]()
+Github出品，对MD的支持非常棒，还支持文件目录等功能  
+## [Sublime Text]()
+说到文本编辑器，怎么能少了sublime？
+
 ## [SourceTree](https://www.sourcetreeapp.com/)
 <img src="https://www.sourcetreeapp.com/images/hero_mac_all@2x.png" width="480" height="242"></img>
 
 git GUI 工具，挺不错的
+
+## [Cornerstone]()
+SVN 的 GUI工具
 
 ## [欧路词典](http://www.eudic.net/eudic/mac_dictionary.aspx)
 
@@ -76,6 +89,9 @@ git GUI 工具，挺不错的
 ## [Zeplin](https://zeplin.io/)
 配合Sketch，效率又上一层楼
 
+## [MaterialColors](http://ww4.sinaimg.cn/large/98900c07gw1f3j4r68r6aj20b40smac3.jpg)
+
+
 ## [Licecap]()
 
 <img src="https://github.com/vivian8725118/vivian-blogs/blob/master/imgs/LiceCap.png?raw=true" width="318" height="191"></img>
@@ -86,6 +102,9 @@ git GUI 工具，挺不错的
 <img src="https://www.mediaatelier.com/CheatSheet/imgs/main.png" width="500" height="207"></img>
 
 长按`cmd`可以显示当前App的快捷键
+
+## [ColorSnapper2]()
+小巧的取色器工具
 
 ## [Jacksum](http://jacksum.net/en/index.html)
 	a free cross platform checksum utility, supports 58+ hash algorithms

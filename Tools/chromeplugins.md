@@ -1,4 +1,7 @@
 # 好用的Chrome插件
+
+> Tip: 在浏览器输入`chrome://extensions/`能打开插件管理页面  
+
 ## 1.[Momentum](https://chrome.google.com/webstore/detail/momentum/laookkfknpbbblfpciffpaejjkokdgca)
 ![Alt text](https://github.com/vivian8725118/vivian-blogs/blob/master/imgs%2F1461311770932.png)
 

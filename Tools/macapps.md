@@ -137,3 +137,10 @@ brew install mpv
 ##[DiskMap](https://fiplab.com/apps/disk-map-for-mac)
 ![DiskMap](http://a2.mzstatic.com/us/r30/Purple6/v4/62/fe/a5/62fea55f-e0f0-8aff-5467-c19a1f730cde/screen800x500.jpeg)
 一款显示硬盘文件大小占用的分析软件
+
+## [马克鳗](http://www.getmarkman.com/)
+
+<img src="https://github.com/songnick/AndroidNote/blob/master/Resource/length.gif">
+<img src="https://github.com/songnick/AndroidNote/blob/master/Resource/color.gif">
+
+高效的设计稿标注、测量工具，没有美工的时候我们自己测量长度、获取色值

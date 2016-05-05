@@ -122,3 +122,9 @@ jacksum -a md5 <filename>
 <img src="https://github.com/vivian8725118/vivian-blogs/blob/master/imgs/mind.png?raw=true" width="586" height="139"></img>
 
 几款不错的思维导图软件，各有各的特点，替换着用
+
+## [马克鳗](http://www.getmarkman.com/)
+<img src="https://github.com/songnick/AndroidNote/blob/master/Resource/length.gif">
+<img src="https://github.com/songnick/AndroidNote/blob/master/Resource/color.gif">
+
+高效的设计稿标注、测量工具，没有美工的时候我们自己测量长度、获取色值

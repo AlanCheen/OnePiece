@@ -122,3 +122,18 @@ jacksum -a md5 <filename>
 <img src="https://github.com/vivian8725118/vivian-blogs/blob/master/imgs/mind.png?raw=true" width="586" height="139"></img>
 
 几款不错的思维导图软件，各有各的特点，替换着用
+
+## [mpv](https://mpv.io/)
+
+![MPV](https://mpv.io/images/mpv-screenshot-f4a039a3.jpg)
+一款免费、开源、跨平台的全能播放器，高清电影党的最爱
+
+可以通过[Brew](https://github.com/Homebrew/brew)安装
+
+```
+brew install mpv
+```
+
+##[DiskMap](https://fiplab.com/apps/disk-map-for-mac)
+![DiskMap](http://a2.mzstatic.com/us/r30/Purple6/v4/62/fe/a5/62fea55f-e0f0-8aff-5467-c19a1f730cde/screen800x500.jpeg)
+一款显示硬盘文件大小占用的分析软件

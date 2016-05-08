@@ -12,7 +12,11 @@
 ### [oh my zsh](http://ohmyz.sh/)
 跟iTerm绝配，提供了 iTerm 的几种主题，上图就是其中一种主题
 
-### [PostMan]()
+### [Brew](https://github.com/Homebrew/brew)
+
+package manager for macos
+
+### [PostMan](http://www.getpostman.com/apps)
 API调试工具,满足你所有需求   
 
 ### [Jacksum](http://jacksum.net/en/index.html)
@@ -29,18 +33,18 @@ jacksum -a md5 <filename>
 
 ## IDE&文本编辑器
 
-### [Vim]()
+### [Vim](http://www.vim.org/download.php)
 
-火了30年!    
+mac自带,火了30年!    
 vim配置，自动安装很多工具 [autoconfig-mac-vimrc](https://github.com/barretlee/autoconfig-mac-vimrc)
 
-### [Emacs]()
-与Vim齐名
+### [Emacs](http://www.gnuemacs.org/)
+与Vim齐名  
 
-### [Atom]()
+### [Atom](https://atom.io/)
 Github出品，对MD的支持非常棒，还支持文件目录等功能  
 
-### [Sublime Text]()
+### [Sublime Text](http://www.sublimetext.com/)
 说到编辑器，怎么能少了sublime？  
 
 
@@ -49,22 +53,23 @@ Github出品，对MD的支持非常棒，还支持文件目录等功能
 
 ### [Alfred](https://www.alfredapp.com/)
 必备，配合 workflow 6得飞起  
-
+![Alfred](http://ww3.sinaimg.cn/large/98900c07gw1f3ntd3a8dtj20h602mmx4.jpg)  
 ### [Go2Shell](https://itunes.apple.com/app/id445770608)
 快速在当前目录进入shell环境
 
 ### [Manico](http://manico.im/)
 设置快捷键启动APP 很方便  
-
-### 思维导图
+![Manico](http://ww2.sinaimg.cn/large/98900c07gw1f3nth9sp1zj20hs0jp0uc.jpg)  
+### 思维导图  
 
 <img src="https://github.com/vivian8725118/vivian-blogs/blob/master/imgs/mind.png?raw=true" width="586" height="139"></img>
 
 几款不错的思维导图软件，各有各的特点，替换着用
 
-### [WunderList]()
+### [WunderList](https://www.wunderlist.com/zh/)
 奇妙清单,非常漂亮的TODO List App
 
+![wunderlist](http://ww3.sinaimg.cn/large/98900c07gw1f3nt7d73m8j20ra0emtan.jpg)
 
 
 
@@ -76,7 +81,7 @@ Github出品，对MD的支持非常棒，还支持文件目录等功能
 
 git的GUI工具，挺不错的
 
-### [Cornerstone]()
+### [Cornerstone](https://www.zennaware.com/cornerstone/index.php)
 SVN 的 GUI工具  
 
 
@@ -101,7 +106,7 @@ SVN 的 GUI工具
 
 高效的设计稿标注、测量工具，没有美工的时候我们自己测量长度、获取色值  
 
-### [ColorSnapper2]()
+### [ColorSnapper2](http://colorsnapper.com/)
 小巧的取色器工具,支持各种进制,非常方便好用!~  
 
 ###  [MaterialColors](http://ww4.sinaimg.cn/large/98900c07gw1f3j4r68r6aj20b40smac3.jpg)
@@ -119,7 +124,7 @@ Material 色板
 
 mac的空间寸土寸金,它作为mac上最棒的清理工具,会照顾好你的mac的~!!!!    
 ### [DiskMap](https://fiplab.com/apps/disk-map-for-mac)
-![DiskMap](http://a2.mzstatic.com/us/r30/Purple6/v4/62/fe/a5/62fea55f-e0f0-8aff-5467-c19a1f730cde/screen800x500.jpeg)
+![DiskMap](http://a2.mzstatic.com/us/r30/Purple6/v4/62/fe/a5/62fea55f-e0f0-8aff-5467-c19a1f730cde/screen800x500.jpeg)  
 一款显示硬盘文件大小占用的分析软件
 
 
@@ -131,7 +136,7 @@ mac的空间寸土寸金,它作为mac上最棒的清理工具,会照顾好你的
 ### [1Password](https://agilebits.com/downloads)
 还在为账号密码而烦忧么,有了它,再也不用自己记密码了!!  
 
-### [Licecap]()
+### [Licecap](http://www.cockos.com/licecap/)
 
 <img src="https://github.com/vivian8725118/vivian-blogs/blob/master/imgs/LiceCap.png?raw=true" width="318" height="191"></img>
 
@@ -172,13 +177,15 @@ ps：其实大多数情况都是Evernote比较好用，有一个情况就是如�
 
 <img src="https://github.com/vivian8725118/vivian-blogs/blob/master/imgs/oulu.png?raw=true" width="452" height="299"></img>
 
-词典，非常方便。配合[Vocabulary.com](https://www.vocabulary.com/)的词库，6到起飞。跟有道词典的不同是有道词典很多是从网上搜索来抓取的解释，欧路词典更多的像一本真正的词典。  
+词典，非常方便。配合[Vocabulary.com](https://www.vocabulary.com/)的词库，6到起飞。   
+跟有道词典的不同是有道词典很多是从网上搜索来抓取的解释，欧路词典更多的像一本真正的词典。  
 
 ### [网易云音乐](https://itunes.apple.com/cn/app/wang-yi-yun-yin-le/id944848654?mt=12)
 
 <img src="https://github.com/vivian8725118/vivian-blogs/blob/master/imgs/wangyiyun.png?raw=true" width="501" height="335"></img>
 
-听歌用，最好的音乐播放器，没有之一。如果不是因为版权问题，就只用这一个了，在这上边没有的歌，才去考虑 QQ 音乐。
+听歌用，最好的音乐播放器，没有之一。  
+如果不是因为版权问题，就只用这一个了，在这上边没有的歌，才去考虑 QQ 音乐。
 
 ### [mpv](https://mpv.io/)
 

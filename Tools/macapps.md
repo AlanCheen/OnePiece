@@ -11,6 +11,7 @@
 
 ## [oh my zsh](http://ohmyz.sh/)
 跟iTerm绝配，提供了 iTerm 的几种主题，上图就是其中一种主题
+![ohmyzsh](http://ww2.sinaimg.cn/mw690/98900c07gw1f3p4asdn6bj20fr05a3zq.jpg)
 
 ## [Go2Shell](https://itunes.apple.com/app/id445770608)
 快速在当前目录进入shell环境

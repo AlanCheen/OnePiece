@@ -61,29 +61,22 @@ Github出品，对MD的支持非常棒，还支持文件目录等功能
 ### [Manico](http://manico.im/)
 设置快捷键启动APP 很方便  
 ![Manico](http://ww2.sinaimg.cn/large/98900c07gw1f3nth9sp1zj20hs0jp0uc.jpg)  
-### 思维导图  
-
-<img src="https://github.com/vivian8725118/vivian-blogs/blob/master/imgs/mind.png?raw=true" width="586" height="139"></img>
-
-几款不错的思维导图软件，各有各的特点，替换着用
 
 ### [WunderList](https://www.wunderlist.com/zh/)
 奇妙清单,非常漂亮的TODO List App
 
 ![wunderlist](http://ww3.sinaimg.cn/large/98900c07gw1f3nt7d73m8j20ra0emtan.jpg)
 
+### 思维导图  
 
+<img src="https://github.com/vivian8725118/vivian-blogs/blob/master/imgs/mind.png?raw=true" width="586" height="139"></img>
 
-## 源码管理工具
+几款不错的思维导图软件，各有各的特点，替换着用
 
-源码管理最火的应该就是`git`和`svn`了吧~  
-### [SourceTree](https://www.sourcetreeapp.com/)
-<img src="https://www.sourcetreeapp.com/images/hero_mac_all@2x.png" width="480" height="242"></img>
-
-git的GUI工具，挺不错的
-
-### [Cornerstone](https://www.zennaware.com/cornerstone/index.php)
-SVN 的 GUI工具  
+### 制图(流程图等)
+- [Gliffy Diagrams](https://chrome.google.com/webstore/detail/gliffy-diagrams/bhmicilclplefnflapjmnngmkkkkpfad/related?utm_source=chrome-app-launcher)   
+- [ProcessOn](https://www.processon.com/)  
+- [Google Drawing](https://docs.google.com/drawings)   
 
 
 ## 设计&产品
@@ -113,6 +106,18 @@ SVN 的 GUI工具
 ###  [MaterialColors](http://ww4.sinaimg.cn/large/98900c07gw1f3j4r68r6aj20b40smac3.jpg)
 
 Material 色板  
+
+
+## 源码管理工具
+
+源码管理最火的应该就是`git`和`svn`了吧~  
+### [SourceTree](https://www.sourcetreeapp.com/)
+<img src="https://www.sourcetreeapp.com/images/hero_mac_all@2x.png" width="480" height="242"></img>
+
+git的GUI工具，挺不错的
+
+### [Cornerstone](https://www.zennaware.com/cornerstone/index.php)
+SVN 的 GUI工具  
 
 
 
@@ -198,3 +203,5 @@ ps：其实大多数情况都是Evernote比较好用，有一个情况就是如�
 ```
 brew install mpv
 ```
+
+

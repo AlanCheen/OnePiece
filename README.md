@@ -21,7 +21,7 @@
 
 |        书名     | 状态     	    |推荐指数       |	        评价  |	最后更新时间  |
 | :--------------:|:-------------:|:-------------:|:-------------:| :-------------:|  
-| [EffectiveJava](./ReadingNotes/EffectiveJava)  |  阅读第4章中|  9  |Java进阶必备| 2016年3月30日|  
+| [EffectiveJava](./ReadingNotes/EffectiveJava)  |  阅读第20条|  9  |Java进阶必备| 2016年5月8日|  
 | [Android开发艺术探索](./ReadingNotes/AndroidArt)  |  阅读ing|  9  |Android中高级进阶必备|2016年4月1日|  
 
 
@@ -40,7 +40,7 @@
 
 1. 欢迎向我推荐优秀的书籍   
 2. 指出我的错误  
-3. 与我讨论交流 
+3. 与我讨论交流
 4. 发PR  
 
 另外，也非常欢迎提issue！！！

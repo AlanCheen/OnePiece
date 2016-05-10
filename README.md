@@ -27,8 +27,8 @@
 
 ### 资源集合
 
-- [Android架构](./Collections/Android/Architecture.md)
-
+- [Android架构](./Collections/Android/Architecture.md)  
+- [Awesome-RxJava](https://github.com/lzyzsd/Awesome-RxJava)  
 
 ### 神兵利器  
 	工欲善其事必先利其器
@@ -52,6 +52,8 @@
 [miao1007](https://github.com/miao1007)  
 [songnick](https://github.com/songnick)  
 [Diffey](https://github.com/Runpop)  
+
+
 ## 要上船的请联系我
 
 非常乐于结交有上进心，热于分享，热于助人的朋友！~  

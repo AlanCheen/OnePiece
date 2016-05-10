@@ -1,12 +1,14 @@
 # 第1章-Activity的生命周期和启动模式
 
 
-## Activity的生命周期
+## [Activity](http://developer.android.com/intl/zh-cn/reference/android/app/Activity.html)的生命周期
 
 1. 正常状态
 2. 异常状态(系统杀死/Configuration变化如屏幕旋转)
 
 ### 正常状态
+
+![activity_lifecycle](http://ww2.sinaimg.cn/mw690/98900c07gw1f3qnyek4ozj20e90ifmyz.jpg)  
 
 1. onCreate   表示Activity正在创建,可以做一些初始化操作
 2. onRestart  正在重新启动,onstop后回来会调用 
@@ -16,6 +18,7 @@
 5. onStop    即将停止,**不可见** 可以做一些稍微重量级  的回收
 6. onDestroy 即将销毁,可以做一些回收资源,关闭线程,移除Handler消息等操作
   
+
 
 生命周期配对去记忆效果更佳:  
 create -- destroy
@@ -64,6 +67,10 @@ PS:`onSaveInstanceState`如下情况会调用:
 另外:可以在onCreate里判断bundle是否为null来判断是新建还是重新创建  
 
 
+
+关于完整的生命周期,附上一张图,配有fragment的生命周期,出自[android-lifecycle](https://github.com/xxv/android-lifecycle):    
+![complete_android_fragment_lifecycle](http://ww1.sinaimg.cn/mw690/98900c07gw1f3qo4cy2f7j21bu2u2wu8.jpg)  
+
 #### View 的恢复
 A系统默认做了一定的恢复,如视图结构,LV的滑动的位置等等(View也有save,restore方法)  
 
@@ -87,19 +94,19 @@ so,一般给Activity配上这个就行了:
 
 ## 启动模式
 
-- 1. Standard   
+### Standard   
 
-标准模式,默认的启动模式,每次启动都会新建一个Activity实例  
+标准模式,默认的启动模式,**每次启动都会新建一个Activity实例**    
 
 需要注意的是当使用ApplicationContext去启动Standard模式的Activity的时候会报错,说需要添加NEW_TASK 的标记  
 
 为什么呢?  
 
-因为Activity启动需要任务栈,而用Standard模式去启动Activity,默认会进入启动它的Activity所属的任务栈中,而非Activity类型的Context并没有所谓的任务栈.  
+因为**Activity启动需要任务栈**,而用**Standard模式去启动Activity,默认会进入启动它的Activity所属的任务栈中,而非Activity类型的Context并没有所谓的任务栈**.  
 
 ABC--启动C->ABC
 
-- 2. SingleTop  
+### SingleTop  
 
 栈顶复用模式,如果新的Activity已位于栈顶,那么不会重新创建Activity,而是回调`onNewIntent`方法  
 
@@ -107,33 +114,74 @@ ABC--启动C->ABC
 
 ABC--启动C--> ABC  
 
-- 3. SingleTask
+### SingleTask
 
 栈内复用模式,只要占中存在都不会重新创建,并且也是回调`onNewIntent`  
 另外需要注意的是,该模式拥有**clearTop** 的效果,会把位于它顶上的Activity全部出栈(PS:必须同一个栈)  
 
 如: ABCDE--启动C(SingleTask)--> ABC  
 
-- 4. SingleInstance  
+### SingleInstance  
 
-单实例模式  栈内单例,一个Activity实例独占一个任务栈,可以说整个手机都只有一个实例  
+单实例模式,**栈内单例**,一个Activity实例**独占一个任务栈**,可以说整个手机都只有一个实例  
 
 
-### 任务栈
+指定启动模式有两种方式:  
+1. 清单里修改`android:launchMode`属性  
+2. Intent.addFlags() 来指定    
 
-TaskAffinity(任务相关性),**标识了一个Activity的任务栈名称**,*默认为应用的包名*(万能的包名!)      
+#### Activity的Flags
+
+常用的Flags:  
+1. FLAG_ACTIVITY_NEW_TASK  指定启动模式为`singleTask` 
+2. FLAG_ACTIVITY_SINGLE_TOP    指定`singleTop`启动模式
+3. FLAG_ACTIVITY_CLEAR_TOP  将在它之上的所有Activity移出栈,这个模式一般需要和`FLAG_ACTIVITY_NEW_TASK`一起出现  
+4. FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS  具有这个标记的Activity不会出现在历史Activity列表中,相当于`android:exludeFromRecents="true"`  
+
+## 任务栈
+
+TaskAffinity(任务相关性),**标识了一个Activity的任务栈名称**,*默认为应用的包名*(万能的包名啊!)      
 
 我们可以在清单文件里配置,也可以为每个Activity配置不同的值,但是需要注意的是它**不能跟包名相同,并且必须要包含`.`分隔符!**  
 
-并且TaskAffinity属性主要和SingleTask或者`allowTaskReparenting`配对使用,在其他情况下没有意义.  
+并且TaskAffinity属性主要和`SingleTask`或者`allowTaskReparenting`配对使用,在其他情况下没有意义.  
 
 1. TaskAffinity和SingleTask配合: TaskAffinity的值为该模式的任务栈的名字
-2. TaskAffinity和allowTaskReparenting 配合就比较复杂了:
+2. TaskAffinity和`allowTaskReparenting` 配合就比较复杂了:
+当`allowTaskReparenting`为`true`时,A应用启动B应用的一个Activity C,然后按Home回到桌面,然后再单击B的桌面图标,这个时候不是启动B的主Activity,而是重新显示被应用A启动的Activity C(原本来说C是A启动的,那么C应该待在A的任务栈里),或者说C从A的任务栈转移到了B的任务栈中(*也许这就是re-parenting的含义吧*)  
+
+补充:`allowTaskReparenting`需要和`FLAG_ACTIVITY_RESET_TASK_IF_NEEDED`标记合作才行,而从Home点击图标启动应用的`Intent`就带有该标记.  
 
 
 
+## IntentFilter的匹配规则
+
+启动Activity有两种方式:**显示调用**和**隐式调用**  
+
+显示调用非常简单,明确指定被启动对象的组件信息即可.  
+
+而隐式调用需要配合`IntentFilter`去匹配,**一个Activity可以有多个IntentFilter**,匹配到了其中一个就能启动,否则启动失败,`IntentFilter`的过滤信息有*action,category,data*    
+
+当一个Intent同时匹配`IntentFilter`的action,category,data,才能启动一个Activity  
+
+### action的匹配规则
+
+action是个字符串,区分大小写,系统自带一些Action,也可以自定义  
+
+规则是:**必须要匹配**,即Intent的action需要一模一样!**有多个action的时候,只需要匹配到一个即可**    
+
+需要注意的是,**Intent必须包含action**,否则匹配失败  
+
+### category的匹配规则  
+
+category跟action一样,也是个字符串,系统也自带了一些,我们也可以自定义.  
+
+它要求`Intent`中如果含有`category`,那么所有的`category`都必须和过滤规则的其中一个相同,即**被过滤规则所包含,是它的子集**  
+
+**注意:与`action`不同的是,它可以不指定`category`**,这是因为`startActivity`和`startActivityForResult`会默认给Intent加上`android.intent.category.DEFAULT`这个`categrory`,所以如果你的Activity要能够接受隐式调用,就必须在清单文件中为这个Activity的`IntentFilter`中指定`android.intent.category.DEFAULT`这个`category`  
 
 
+### data的匹配规则
 
 
 

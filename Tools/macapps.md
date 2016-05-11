@@ -45,6 +45,8 @@ vim配置，自动安装很多工具 [autoconfig-mac-vimrc](https://github.com/b
 ### [Atom](https://atom.io/)
 Github出品，对MD的支持非常棒，还支持文件目录等功能  
 
+[Atom飞行手册翻译](https://wizardforcel.gitbooks.io/atom-flight-manual-zh-cn/content/index.html)  
+
 ### [Sublime Text](http://www.sublimetext.com/)
 说到编辑器，怎么能少了sublime？  
 

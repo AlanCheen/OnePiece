@@ -197,7 +197,7 @@ ps：其实大多数情况都是Evernote比较好用，有一个情况就是如�
 
 ### [mpv](https://mpv.io/)
 
-![MPV](https://mpv.io/images/mpv-screenshot-f4a039a3.jpg)
+<img src="https://mpv.io/images/mpv-screenshot-f4a039a3.jpg" width="410" height="182"></img>
 一款免费、开源、跨平台的全能播放器，高清电影党的最爱
 
 可以通过[Brew](https://github.com/Homebrew/brew)安装

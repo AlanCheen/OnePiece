@@ -8,8 +8,6 @@
 
 ### 正常状态
 
-![activity_lifecycle](http://ww2.sinaimg.cn/mw690/98900c07gw1f3qnyek4ozj20e90ifmyz.jpg)  
-
 1. onCreate   表示Activity正在创建,可以做一些初始化操作
 2. onRestart  正在重新启动,onstop后回来会调用 
 3. onStart    正在被启动,后台,不可交互
@@ -18,7 +16,6 @@
 5. onStop    即将停止,**不可见** 可以做一些稍微重量级  的回收
 6. onDestroy 即将销毁,可以做一些回收资源,关闭线程,移除Handler消息等操作
   
-
 
 生命周期配对去记忆效果更佳:  
 create -- destroy
@@ -68,7 +65,7 @@ PS:`onSaveInstanceState`如下情况会调用:
 
 
 
-关于完整的生命周期,附上一张图,配有fragment的生命周期,出自[android-lifecycle](https://github.com/xxv/android-lifecycle):    
+关于完整的生命周期,附上一张图,配有fragment的生命周期,可能你在很多地方都看到过,很多人盗用了它,但是并不给出处,这里提一下,它出自[android-lifecycle](https://github.com/xxv/android-lifecycle):    
 ![complete_android_fragment_lifecycle](http://ww1.sinaimg.cn/mw690/98900c07gw1f3qo4cy2f7j21bu2u2wu8.jpg)  
 
 #### View 的恢复

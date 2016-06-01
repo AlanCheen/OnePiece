@@ -37,10 +37,14 @@ jacksum -a md5 <filename>
 ### [Vim](http://www.vim.org/download.php)
 
 mac自带,火了30年!    
-vim配置，自动安装很多工具 [autoconfig-mac-vimrc](https://github.com/barretlee/autoconfig-mac-vimrc)
+
+Square有一个库可以帮助你自动配置很多Vim插件，非常方便==》[maximum-awesome](https://github.com/square/maximum-awesome)  
+**Square出品，必属精品**  
+
+其他人的还有一个：[autoconfig-mac-vimrc](https://github.com/barretlee/autoconfig-mac-vimrc)
 
 ### [Emacs](http://www.gnuemacs.org/)
-与Vim齐名  
+与Vim齐名，不过需要自己去安装，玩过一次后卸载了- -    
 
 ### [Atom](https://atom.io/)
 Github出品，对MD的支持非常棒，还支持文件目录等功能  

@@ -1,11 +1,19 @@
 
 
 
+## [gradle-android-apk-size-plugin](https://github.com/vanniktech/gradle-android-apk-size-plugin)  
+
+Gradle plugin that generates CSV file with apk size per output and variant of apk
+
+
 ## [permissions-dispatcher-plugin](https://github.com/shiraji/permissions-dispatcher-plugin)  
 
 ![](https://github.com/shiraji/permissions-dispatcher-plugin/blob/master/website/images/pd.gif)
 
 
+## [AndroidWiFiADB](https://github.com/pedrovgs/AndroidWiFiADB)
+
+wifi调试，无需usb~  
 
 ## 别人的整理
 [AndroidStudio好用的插件

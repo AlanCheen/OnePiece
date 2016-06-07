@@ -5,3 +5,7 @@
 - [第4章 类和接口](./第4章-类和接口.md)
 - [第5章 泛型](./第5章-泛型.md)
 - [to be continued]
+
+
+
+老外的笔记？==》<http://thefinestartist.com/effective-java/>

@@ -10,7 +10,7 @@
 
 
 
-## Touch相关
+## 手势
 
 
 [Android中MotionEvent的来源和ViewRootImpl](http://blog.csdn.net/singwhatiwanna/article/details/50775201)
@@ -18,7 +18,6 @@
 
 
 ## 进程
-
 
 
 
@@ -32,3 +31,13 @@ chrisbanes大神的文章！~
 
 [svg2android](http://inloop.github.io/svg2android/)  
 将svg文件转化为vector xml文件
+
+
+## 插件化
+
+[代理ACTIVITY模式
+](https://zhuanlan.zhihu.com/p/21335594?f3fb8ead20=dafca61abd3171ed5bf8b55ab023f7cf)  
+讲述如何代理Activity  
+
+
+

@@ -47,6 +47,8 @@ Google官方出品:
 ### 文章
 [使用 Clean 架构开发 Android 应用详细指南](http://gold.xitu.io/entry/56d69ef2df0eea0051fd422e?utm_source=leopost&utm_medium=20160306&utm_campaign=weibo)
 
+[Clean Android Code](https://medium.com/android-news/clean-android-code-navigation-ui-27e5ea87f8d5#.i049eihq8)  
+有一系列文章！ 
 
 ### Demo
 [Android-CleanArchitecture](https://github.com/android10/Android-CleanArchitecture)  
@@ -57,7 +59,7 @@ Google官方出品:
 [MVPVM in Action, 谁告诉你MVP和MVVM是互斥的](http://blog.zhaiyifan.cn/2016/03/16/android-new-project-from-0-p3/)  
 
 
-## MVVM
+## MVVM  
 //todo
 ## Flux
 

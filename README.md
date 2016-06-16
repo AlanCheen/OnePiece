@@ -18,12 +18,7 @@
 
 ### 读书笔记
 
-
-|        书名     | 状态     	    |推荐指数       |	        评价  |	最后更新时间  |
-| :--------------:|:-------------:|:-------------:|:-------------:| :-------------:|  
-| [EffectiveJava](./ReadingNotes/EffectiveJava)  |  阅读第20条|  9  |Java进阶必备| 2016年5月8日|  
-| [Android开发艺术探索](./ReadingNotes/AndroidArt)  |  阅读ing|  9  |Android中高级进阶必备|2016年4月1日|  
-
+为了更好的阅读体验，笔记挪到这里啦==》[ReadingNotes](https://github.com/AlanCheen/ReadingNotes)  
 
 ### 资源集合
 

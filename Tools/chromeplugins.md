@@ -2,6 +2,12 @@
 
 > Tip: 在浏览器输入`chrome://extensions/`能打开插件管理页面  
 
+
+
+## [sourcegraph](https://chrome.google.com/webstore/detail/sourcegraph-for-github/dgjhfomjieaadpoljlnidmbgkdffpack/related)
+
+**推荐理由**：支持在github中跳转，就像IDE一样，具体看--》[介绍文章](https://text.sourcegraph.com/browse-github-like-an-ide-with-the-sourcegraph-chrome-extension-9e279d2b98e9#.igg0aiby3)
+
 ## [Momentum](https://chrome.google.com/webstore/detail/momentum/laookkfknpbbblfpciffpaejjkokdgca)
 ![Alt text](https://github.com/vivian8725118/vivian-blogs/blob/master/imgs%2F1461311770932.png)
 

@@ -1,6 +1,16 @@
-
 # Mac上你值得拥有的App  
 
+[Homebrew](http://brew.sh/)
+
+一行命令即可安装App，必备！！
+
+安装Homebrew很简单，执行以下命令即可   
+`/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+`
+然后就可以执行命令来安装app了，比AppStore高效N倍  
+```
+brew install xxx
+```
 
 ## 开发&开发工具
 
@@ -8,7 +18,7 @@
 <img src="https://github.com/vivian8725118/vivian-blogs/blob/master/imgs/iterm.png?raw=true" width="570" height="426"></img>
 
 敲命令能缺了它？
-新电脑第一个装的就是它!
+
 ### [oh my zsh](http://ohmyz.sh/)
 跟iTerm绝配，提供了 iTerm 的几种主题，上图就是其中一种主题
 ![ohmyzsh](http://ww2.sinaimg.cn/mw690/98900c07gw1f3p4asdn6bj20fr05a3zq.jpg)

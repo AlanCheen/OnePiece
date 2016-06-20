@@ -33,6 +33,8 @@ Google官方出品:
 
 [一种在android中实现MVP模式的新思路](https://github.com/hehonghui/android-tech-frontier/tree/master/androidweekly/%E4%B8%80%E7%A7%8D%E5%9C%A8android%E4%B8%AD%E5%AE%9E%E7%8E%B0MVP%E6%A8%A1%E5%BC%8F%E7%9A%84%E6%96%B0%E6%80%9D%E8%B7%AF)
 
+[MVP模式简单易懂的介绍方式](http://kaedea.com/2015/10/11/android-mvp-pattern/)  
+
 ### App||Demo
 [MVP Android Example](https://github.com/antoniolg/androidmvp)
 

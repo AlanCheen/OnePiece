@@ -29,6 +29,7 @@ dependency是child的依赖对象，是Behavior对child进行操作的根据
 
 判断`dependency`是否是我们所依赖的对象，如果是，返回true即可建立  
 
+> Note：当确定依赖关系后，当dependency被布局（layout）后child会紧接着被布局，无视子view的顺序(Col内有个Comparator负责排序)
 
 建立依赖关系后，何时Behavior该对child进行操作？
 
@@ -44,7 +45,10 @@ dependency是child的依赖对象，是Behavior对child进行操作的根据
 
 
 
-或许有用的资料
+方法名|调用时机|作用
+------|-----|-----
+onDependentViewChanged|当dependency|
+## 或许有用的资料
 
 <https://medium.com/google-developers/intercepting-everything-with-coordinatorlayout-behaviors-8c6adc140c26#.p1v2t3rxo>  
 

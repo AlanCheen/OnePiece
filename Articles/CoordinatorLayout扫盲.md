@@ -117,3 +117,5 @@ Col的layout measure 说开去。。
 ](https://medium.com/google-developers/intercepting-everything-with-coordinatorlayout-behaviors-8c6adc140c26#.p1v2t3rxo)  
 
 [CoordinatorLayout.Behavior](https://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.Behavior.html)  
+
+<http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2016/0224/3991.html>

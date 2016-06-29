@@ -22,8 +22,7 @@
 
 ### 资源集合
 
-- [Android架构](./Collections/Android/Architecture.md)  
-- [Awesome-RxJava](https://github.com/lzyzsd/Awesome-RxJava)  
+Android资源大集合，同样为了更好的体验，分离至==》[Android-Resources](https://github.com/AlanCheen/Android-Resources)  
 
 ### 神兵利器  
 	工欲善其事必先利其器
@@ -60,11 +59,6 @@
 
 **加我还请注明来由！**  
 
-## 关于版权
-
-**不允许任何形式的全文转载,禁止用于商业用途**,除非征得本人同意,请尊重我的劳动成果!(不是我变小气了,而是无耻小人太多了)
-
-在这里,可能会出现你的文章/库的链接,**如有侵权**,麻烦联系我,我会尽快删除  
 
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/AlanCheen/onepiece/trend.png)](https://bitdeli.com/free "Bitdeli Badge")

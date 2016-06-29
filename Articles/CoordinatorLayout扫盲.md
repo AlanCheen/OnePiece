@@ -2,29 +2,35 @@
 
 这两天为了一个UI效果，看了CoordinateLayout（后面*简称Col*（我懒- -））的官方文档以及源码，在此记录如何一步一步深入理解。    
 
-Col的定义：  
+来看看Col的定义以及官网的介绍：  
 ```
-public class CoordinatorLayout 
+public class CoordinatorLayout
 extends ViewGroup implements NestedScrollingParent
 ```  
 
-官方文档的一句话评价：  
 > CoordinatorLayout is a super-powered FrameLayout.
+CoordinatorLayout is intended for two primary use cases:
+1. As a top-level application decor or chrome layout
+2. As a container for a specific interaction with one or more child views
 
 CoordinatorLayout本身只是一个ViewGroup，实现了`NestedScrollingParent`接口，看似非常普通，
-但是说`CoordinatorLayout`是Design库**最为重要的控件**也不为过。  
+但是说`CoordinatorLayout`是Design库**最为重要的控件**也不为过。
+
+引用官方文档的一句话评价：  
+> CoordinatorLayout is a super-powered FrameLayout.
+
 
 **why？**它`super-powered`在哪里呢？    
 
 Col最为重要的作用是：**提供给子View实现各种交互的极大便利**  
 在没有Col的日子要实现简单的交互也不是件容易的事，各种回调/Event通知，很复杂，但是现在方便了~  
- 
+
  **How？它是怎么做到的呢？**    
 说到这里，不得不提到Col的静态内部类--->Behavior
 接下去来了解一下它,老司机要开车了，快上车~  
 
 ## [Behavior](https://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.Behavior.html)  
-Behavior是什么，有什么作用？ 
+Behavior是什么，有什么作用？
 
 	Interaction behavior plugin for child views of CoordinatorLayout.
 
@@ -42,8 +48,8 @@ Behavior是什么，有什么作用？
 
 ### 简单了解
 ```
-//定义 V 为泛型，可指定针对哪种类型的View 
-public static abstract class Behavior<V extends View> 
+//定义 V 为泛型，可指定针对哪种类型的View
+public static abstract class Behavior<V extends View>
 //默认的构造方法
 public Behavior() {}
 // 如果要在xml里使用Behavior 那么这构造方法必不可少，另外你在xml定义的属性可以在这里获取
@@ -52,7 +58,7 @@ public Behavior(Context context, AttributeSet attrs) {}
 
 基本知道Behavior是什么后，接下去深入阅读Behavior的源码一探究竟（一言不合就看源码）  
 
-### 深入了解 
+### 深入了解
 
 #### child与dependency
 
@@ -97,8 +103,8 @@ public boolean layoutDependsOn(CoordinatorLayout parent,FloatingActionButton chi
 另外需要注意的是：**当确定依赖关系后，当dependency被布局（或测量）后child会紧接着被布局（或测量）**，Col会无视子view的顺序(原因是Col内有个Comparator`mLayoutDependencyComparator`会按照依赖关系对所有的子View进行排序),这会影响它们的测量以及布局顺序   
 
 可以说`layoutDependsOn`是最为重要的方法  
-	
-	
+
+
 
 
 

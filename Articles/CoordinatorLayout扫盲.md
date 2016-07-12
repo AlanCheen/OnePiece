@@ -1,8 +1,19 @@
 # 一步一步深入理解[CoordinateLayout](https://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.html)
 
-这两天为了一个UI效果，看了CoordinateLayout（后面*简称Col*（我懒- -））的官方文档以及源码，在此记录如何一步一步深入理解。    
+Google推出Design库已经一年了，国内也出过一些文章关于CoordinateLayout，但是都是叫你怎么用，或者简单的自定义一些Behavior,并没有一篇文章深入去了解它的原理。  
 
-学习最好的习惯就是看官方文档，来看看Col的定义以及官网的介绍：  
+刚好这两天为了实现一个UI效果，看了`CoordinateLayout`（后面*简称Col*（我懒- -））的官方文档以及源码，搞懂了它的原理，于是想着拿出来分享，特在此记录分享如何一步一步深入理解Col，希望可以填补这个空缺。    
+
+补充说明：
+
+1. Col等源码基于`23.2.1`版本   
+2. 本文侧重在于Col与Behavior之间的交互，侧重于原理，并选择要点进行讲解，所以可能会有一些点被我忽略（不是不重要），不过看完后我相信你对Col会有更深一层的了解。      
+
+
+## 初步了解
+
+学习最好的习惯就是看官方文档，来看看Col的定义以及官网的介绍： 
+ 
 ```
 public class CoordinatorLayout
 extends ViewGroup implements NestedScrollingParent
@@ -14,10 +25,14 @@ CoordinatorLayout is intended for two primary use cases:
 2. As a container for a specific interaction with one or more child views
 
 
-可以看到Col继承自`ViewGroup`，并且它被设计成一个`top-level`的根布局，它本身只是一个ViewGroup，实现了`NestedScrollingParent`接口，看似非常普通，
+从定义可以看到Col继承自`ViewGroup`，并且它被设计成一个`top-level`的根布局，它本身只是一个ViewGroup，实现了`NestedScrollingParent`接口，看似非常普通，
 但是说`CoordinatorLayout`是Design库**最为重要的控件**也不为过。
 
-	 这里需要注意的是:由于Col只实现了`NestedScrollingParent`，所以当Col嵌套（作为一个子View）的时候会得不到你想要的效果，需要自己写一个Col去实现`NestedScrollingChild`接口！  
+这里额外需要注意的是:   
+
+1. **由于Col只实现了`NestedScrollingParent`，所以当Col嵌套（作为一个子View）的时候会得不到你想要的效果，需要自己写一个Col去实现`NestedScrollingChild`接口！**    
+2. 没有实现`NestedScrollingChild`接口的子View如：`ListView`，`ScrollView`在5.0以下版本跟Col是配合不了的需要使用`RecyclerView`，`NestedScrollView`才行  
+
 
 **why？**它`super-powered`在哪里呢？    
 
@@ -140,6 +155,9 @@ LayoutParams getResolvedLayoutParams(View child) {
 
 #### 那些不能不懂的方法
 
+
+##### layoutDependsOn  
+
 之前提到了child与dependency有着依赖关系，那么问题来了： **这个依赖关系是如何建立的？**  
 
 在Behavior类中有个方法：  
@@ -178,13 +196,42 @@ public boolean layoutDependsOn(CoordinatorLayout parent,FloatingActionButton chi
 可以说`layoutDependsOn`方法是自定义`Behavior`最为重要的方法  
 
 
+##### onDependentViewChanged
 建立起依赖关系之后呢？  
+
 想要做交互，似乎还缺点什么，我想在dependency发生变化的时候改变一下child，我该如何知道这个改变的时机呢？  
 
 其实不需要我们去主动获取去判断，其实Col跟Behavior已经帮我们做好了这一切，`onDependentViewChanged`登场。  
 
-  
+`onDependentViewChanged`方法的定义：
 
+```
+/**
+ * Respond to a change in a child's dependent view
+ * This method is called whenever a dependent view changes in size or position outside
+ * of the standard layout flow. A Behavior may use this method to appropriately update
+ * the child view in response.
+ */
+public boolean onDependentViewChanged(CoordinatorLayout parent, V child, View dependency) {
+    return false;
+}
+```
+
+简单来说就是，当我们的`dependency`发生改变的时候，这个方法会调用，而我们在`onDependentViewChanged`方法里做出相应的改变，就能做出我们想要的交互效果了！  
+
+可能你也注意到了`onDependentViewChanged`方法是有返回值的  
+
+当我们改变了child的`size`或者`position`的时候我们需要返回true，差不多可以理解为 当我们的`dependency`发生了改变，同样的，child也需要发生改变，这个时候我们需要返回`true`
+
+
+
+提一下：`onDependentViewChanged`方法是在Col的`dispatchOnDependentViewChanged`里调用的
+
+
+##### 其他
+除了以上两个特别重要的方法外，Nested系列方法也非常重要,如`onStartNestedScroll`和`onStopNestedScroll`来监听嵌套滚动的开始和结束，不过限于篇幅，想再另外开篇去写，这里就不写了    
+
+另外还有`onMeasureChild`，`onLayoutChild`这个后面会讲。
 
 ## 为什么Behavior可以拦截一切？
 
@@ -193,6 +240,8 @@ public boolean layoutDependsOn(CoordinatorLayout parent,FloatingActionButton chi
 让我们挨个一点一点看下去  
 
 ### onMeasure
+
+直接备注在源码里了，不多说啦！~  
 
 ```
 @Override
@@ -234,7 +283,7 @@ protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 @Override
 protected void onLayout(boolean changed, int l, int t, int r, int b) {
     final int layoutDirection = ViewCompat.getLayoutDirection(this);
-    //onMeasure里已经排过序的
+    //mDependencySortedChildren 在 onMeasure里已经排过序了
     final int childCount = mDependencySortedChildren.size();
     for (int i = 0; i < childCount; i++) {
         final View child = mDependencySortedChildren.get(i);
@@ -248,7 +297,14 @@ protected void onLayout(boolean changed, int l, int t, int r, int b) {
 }
 ```
 
-### onInterceptTouchEvent
+原理其实跟`onMeasure`方法一样的。  
+
+### onInterceptTouchEvent & onTouchEvent
+
+在处理touch事件中，Col重写了`onInterceptTouchEvent`和`onTouchEvent`，另外，它们都调用了Col里定义的一个处理拦截的方法，`performIntercept`（关键代码都在这方法之中），就看一下它们的实现吧：  
+
+`onInterceptTouchEvent`的实现：  
+
 
 ```
 @Override
@@ -260,11 +316,12 @@ public boolean onInterceptTouchEvent(MotionEvent ev) {
         //down的时候，跟大部分ViewGroup一样，需要重置一些状态以及变量，比如 mBehaviorTouchView
         resetTouchBehaviors();
     }
-    //这里是关键
+    //这里看performIntercept TYPE_ON_INTERCEPT标记是 onInterceptTouchEvent
     final boolean intercepted = performIntercept(ev, TYPE_ON_INTERCEPT);
     if (cancelEvent != null) {
         cancelEvent.recycle();
     }
+    //当事件为UP和Cancel的时候去重置（同down）
     if (action == MotionEvent.ACTION_UP || action == MotionEvent.ACTION_CANCEL) {
         resetTouchBehaviors();
     }
@@ -273,10 +330,120 @@ public boolean onInterceptTouchEvent(MotionEvent ev) {
 ```
 
 
+`onTouchEvent`的实现：  
 
-Col的layout measure 说开去。。
+```
+@Override
+public boolean onTouchEvent(MotionEvent ev) {
+    boolean handled = false;
+    boolean cancelSuper = false;
+    MotionEvent cancelEvent = null;
+    final int action = MotionEventCompat.getActionMasked(ev);
+    // mBehaviorTouchView不为null（代表之前有behavior处理了down事件） 或者 performIntercept返回true 那么事件就交给mBehaviorTouchView
+    if (mBehaviorTouchView != null || (cancelSuper = performIntercept(ev, TYPE_ON_TOUCH))) {
+        // Safe since performIntercept guarantees that
+        // mBehaviorTouchView != null if it returns true
+        final LayoutParams lp = (LayoutParams) mBehaviorTouchView.getLayoutParams();
+        final Behavior b = lp.getBehavior();
+        if (b != null) {
+            // 交给 behavior去处理事件  
+            handled = b.onTouchEvent(this, mBehaviorTouchView, ev);
+        }
+    }
+    // Keep the super implementation correct
+    // 省略调用默认实现 up&cancel的时候重置状态
+    //...
+    return handled;
+}
+```
 
-原来是Col放任了Behavior~
+可以看到，其实这两个方法做的事情并不多，其实都交给`performIntercept`方法去做处理了！  
+
+`performIntercept`的实现如下：  
+
+```
+// type 标记是intercept还是touch
+private boolean performIntercept(MotionEvent ev, final int type) {
+    boolean intercepted = false;
+    boolean newBlock = false;
+    MotionEvent cancelEvent = null;
+    final int action = MotionEventCompat.getActionMasked(ev);
+    final List<View> topmostChildList = mTempList1;
+    //按Z轴排序 原因很简单 让最上面的View先处理事件  
+    getTopSortedChildren(topmostChildList);
+    // Let topmost child views inspect first 
+    final int childCount = topmostChildList.size();
+    for (int i = 0; i < childCount; i++) {
+        final View child = topmostChildList.get(i);
+        final LayoutParams lp = (LayoutParams) child.getLayoutParams();
+        final Behavior b = lp.getBehavior();
+        //当前事件已经被某个behavior拦截了（or newBlock），并且事件不为down，那么就发送一个 取消事件 给所有在拦截的behavior之后的behavior
+        if ((intercepted || newBlock) && action != MotionEvent.ACTION_DOWN) {
+            // Cancel all behaviors beneath the one that intercepted.
+            // If the event is "down" then we don't have anything to cancel yet.
+            if (b != null) {
+                if (cancelEvent == null) {
+                    final long now = SystemClock.uptimeMillis();
+                    cancelEvent = MotionEvent.obtain(now, now,
+                            MotionEvent.ACTION_CANCEL, 0.0f, 0.0f, 0);
+                }
+                switch (type) {
+                    case TYPE_ON_INTERCEPT:
+                        b.onInterceptTouchEvent(this, child, cancelEvent);
+                        break;
+                    case TYPE_ON_TOUCH:
+                        b.onTouchEvent(this, child, cancelEvent);
+                        break;
+                }
+            }
+            continue;
+        }
+        // 如果还没有被拦截，那么继续询问每个Behavior 是否要处理该事件
+        if (!intercepted && b != null) {
+            switch (type) {
+                case TYPE_ON_INTERCEPT:
+                    intercepted = b.onInterceptTouchEvent(this, child, ev);
+                    break;
+                case TYPE_ON_TOUCH:
+                    intercepted = b.onTouchEvent(this, child, ev);
+                    break;
+            }
+            //如果有behavior处理了当前的事件，那么把它赋值给mBehaviorTouchView,它其实跟ViewGroup源码中的mFirstTouchTarget作用是一样的
+            if (intercepted) {
+                mBehaviorTouchView = child;
+            }
+        }
+        // Don't keep going if we're not allowing interaction below this.
+        // Setting newBlock will make sure we cancel the rest of the behaviors.
+        // 是否拦截一切在它之后的交互 好暴力-0-
+        final boolean wasBlocking = lp.didBlockInteraction();
+        final boolean isBlocking = lp.isBlockingInteractionBelow(this, child);
+        newBlock = isBlocking && !wasBlocking;
+        if (isBlocking && !newBlock) {
+            // Stop here since we don't have anything more to cancel - we already did
+            // when the behavior first started blocking things below this point.
+            break;
+        }
+    }
+    topmostChildList.clear();
+    return intercepted;
+}
+```
+
+通过分析源码，可以知道，Col在关键的方法里把处理权优先交给了Behavior，所以才让Behavior拥有了拦截一切的能力，所以，原来是Col放任了Behavior！！~  
+
+## 结语
+
+Col以及Behavior的重要的几个环节分析完毕，相信大家看完后能够对它们有更深层次的了解，而不是仅仅停留在使用上面。  
+
+这篇文章断断续续写了快一个月，思路断断续续，也有几次推翻重来，原本也打算想讲得更多更细一些，只是限于篇幅与精力，最终的效果跟我最初的预期有所差距，可能也有些错误或者讲解不清晰的地方。  
+
+如果你发现任何错误，或者写得不好的地方，或者不理解的地方，非常欢迎批评指正，也非常欢迎吐槽！！！！
+
+其实我还顺带看了AppBarLayout等的源码，如有可能，我还想把Design库下的所有控件都分析一遍。  
+
+感谢你的阅读。 
+
 
 ## 推荐阅读  
 [Intercepting everything with CoordinatorLayout Behaviors

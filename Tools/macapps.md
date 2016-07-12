@@ -222,3 +222,7 @@ brew install mpv
 ```
 
 
+## 推荐阅读
+[在Mac平台配置你的开发环境](http://mp.weixin.qq.com/s?__biz=MzI3MDE0MzAzMw==&mid=2652201857&idx=1&sn=803e04a8304c127aaa0bb7770f8add1d&scene=0#wechat_redirect)
+
+

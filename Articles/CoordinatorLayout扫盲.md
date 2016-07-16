@@ -1,3 +1,9 @@
+title: 一步一步深入理解CoordinateLayout
+categories: Android
+date: 2016-07-12 20:48:59
+tags: [CoordinateLayout,源码分析]
+---
+
 # 一步一步深入理解[CoordinateLayout](https://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.html)
 
 Google推出Design库已经一年了，国内也出过一些文章关于CoordinateLayout，但是都是叫你怎么用，或者简单的自定义一些Behavior,并没有一篇文章深入去了解它的原理。  

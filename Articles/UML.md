@@ -1,8 +1,8 @@
 # UML类图
 
-UML，进阶必备专业技能。   
+UML，进阶必备专业技能，看不懂UML就会看不懂那些优秀的资料。   
  
-有时候会忘记，在这里简单整理  
+这里简单整理  
 
 ## 类之间的关系
 
@@ -59,6 +59,23 @@ UML，进阶必备专业技能。
 2. 关系强度：组合>聚合>关联>依赖
 
 
+## 类的方法与属性  
+
+类可以拥有多个方法和属性 
+
+属性的表达方式：**可见性  名称:类型 [ = 缺省值 ]**  
+方法的表达方式：**可见性  名称(参数列表) [ : 返回类型]**  
+
+
+可见性：  
+
+* `+` public  
+* `-` private  
+* `#` protected  
+* `~` package  
+
+![示例](http://ww2.sinaimg.cn/large/98900c07jw1f5z65eylbij20cx068wev.jpg)
+
 ## 示例
 
 ![](http://ww2.sinaimg.cn/large/98900c07jw1f5z1qwizmuj20j3095q4f.jpg)
@@ -80,3 +97,5 @@ UML，进阶必备专业技能。
 # 资料
 [看懂UML类图和时序图](http://design-patterns.readthedocs.io/zh_CN/latest/read_uml.html#id1)  
 [UML类图关系](http://www.cnblogs.com/olvo/archive/2012/05/03/2481014.html)  
+[ 深入浅出UML类图](http://blog.csdn.net/lovelion/article/details/7838679)  
+

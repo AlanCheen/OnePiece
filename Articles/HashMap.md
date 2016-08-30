@@ -49,12 +49,15 @@ put N 多 hashCode 一样但是 equals 不一样的对象。
 
 已知数据个数， 如何高效使用 HashMap?
 
+已知个数，则选择好最初的容量，减少 resize 的次数。
+
+
 多线程问题
 
 因为 HashMap 多线程不安全，所以多线程下可以使用 以下类：
 
-ConcurrentHashMap 最佳 锁的粒度更小 性能更好
-SynchronizedMap 给每个（？）操作都加了一个 mutex 锁（互斥锁）
+ConcurrentHashMap 最佳 锁的粒度更小 性能更好  
+SynchronizedMap 给每个（？）操作都加了一个 mutex 锁（互斥锁）  
 Hashtable 给每个方法前加了synchronized（性能差） 
  
 [HashMap的实现与优化](http://www.jianshu.com/p/e54047b2b563)  

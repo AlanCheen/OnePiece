@@ -16,6 +16,10 @@ Dalvik 经过优化，允许在有限的内存中同时运行多个虚拟机的�
 
 开发者编译后的应用代码需要通过一个解释器在用户的设备上运行，这一机制并不高效，但让应用能更容易在不同硬件和架构上运行。
 
+
+Dalvik基于寄存器
+
+
 ## ART
 
 	Android4.4开始引入，5.0彻底从Dalvik转换到ART。  
@@ -29,6 +33,7 @@ ART 使用 AOT 在安装 时用 dex2oat 完全翻译成 native code
 ART 的功能：
 
 ##### AOT
+
 1. ART引入了AOT，能够提升 App 性能，并且拥有更严格的安装时检查。
 2. 在安装的时候，ART 使用 **dex20at**工具编译,把 DEX 文件编译后，生成设备能执行代码。但是有部分文件可能 ART 编译不了，所以 ART 的兼容性比 Dalvik 更差一些。
 
@@ -45,7 +50,10 @@ ART在以下方面提升了 GC：
 5. Compacting GC to reduce background memory usage and fragmentation
 
 
+Dalvik 的内存更加碎片化
+ART 有 Large Object Space 专门用来放大对象 ，大幅度提高内存利用率？
 
+ART拥有改进的GC(垃圾回收)机制：GC时更少的暂停时间、GC时并行处理、某些时候Collector所需时间更短、减少内存不足时触发GC的次数、减少后台内存占用。
 
 
 ART优点：
@@ -54,6 +62,7 @@ ART优点：
 3. 更长的电池续航能力。
 4. 支持更低的硬件。
 5. App 的启动速度更快。
+
 
 ART缺点：
 1、更大的存储空间占用，可能会增加10%-20%。

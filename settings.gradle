@@ -1,0 +1,4 @@
+include ':pandora'
+include ':foundation'
+include ':app'
+rootProject.name = "OnePiece"

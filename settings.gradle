@@ -1,3 +1,4 @@
+include ':fantasy'
 include ':pandora'
 include ':foundation'
 include ':app'

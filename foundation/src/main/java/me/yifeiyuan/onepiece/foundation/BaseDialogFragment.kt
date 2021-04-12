@@ -5,17 +5,15 @@ import android.os.Bundle
 import android.view.View
 import androidx.annotation.LayoutRes
 import androidx.annotation.Nullable
+import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
-import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.google.android.material.bottomsheet.BottomSheetDialog
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 /**
- * Created by 程序亦非猿 on 2021/3/24.
+ * Created by 程序亦非猿 on 2021/4/10.
  */
-abstract class BaseBottomSheetDialogFragment : BottomSheetDialogFragment() {
+abstract class BaseDialogFragment : DialogFragment() {
 
     protected var contentView: View? = null
 
@@ -41,32 +39,6 @@ abstract class BaseBottomSheetDialogFragment : BottomSheetDialogFragment() {
 
     @LayoutRes
     abstract fun getLayoutId(): Int
-
-    /**
-     * https://stackoverflow.com/questions/35937453/set-state-of-bottomsheetdialogfragment-to-expanded
-     *
-     * When using AndroidX, the resource previously found at android.support.design.R.id.design_bottom_sheet
-     * can now be found at com.google.android.material.R.id.design_bottom_sheet.
-     */
-    override fun onStart() {
-        super.onStart()
-        if (isExpanded()) {
-            try {
-                val view = (dialog as BottomSheetDialog).delegate.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)
-
-                view?.let {
-                    BottomSheetBehavior.from(it)
-                            .state = BottomSheetBehavior.STATE_EXPANDED
-                }
-            } catch (e: Exception) {
-                e.printStackTrace()
-            }
-        }
-    }
-
-    open fun isExpanded(): Boolean {
-        return false
-    }
 
     fun show(fragmentActivity: FragmentActivity, tag: String?) {
         this.show(fragmentActivity.supportFragmentManager, tag)

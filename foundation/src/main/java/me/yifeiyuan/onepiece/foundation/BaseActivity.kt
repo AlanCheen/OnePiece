@@ -1,5 +1,6 @@
 package me.yifeiyuan.onepiece.foundation
 
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 
 /**
@@ -8,5 +9,14 @@ import androidx.appcompat.app.AppCompatActivity
 class BaseActivity : AppCompatActivity() {
 
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home->{
+                finish()
+            }
+        }
+
+        return super.onOptionsItemSelected(item)
+    }
 
 }

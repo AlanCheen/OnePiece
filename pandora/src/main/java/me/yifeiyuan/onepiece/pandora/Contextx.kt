@@ -3,6 +3,8 @@ package me.yifeiyuan.onepiece.pandora
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
+import android.view.View
+import android.view.inputmethod.InputMethodManager
 import java.io.BufferedReader
 import java.io.InputStreamReader
 
@@ -14,7 +16,6 @@ import java.io.InputStreamReader
  * @param fileName  例如 foo.json
  */
 fun Context?.openAsset(fileName: String): String? {
-
     if (this == null) {
         return null
     }
@@ -43,4 +44,14 @@ fun Context?.copyTextToClipboard(text: CharSequence) {
     val clipboardManager = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
     val clip = ClipData.newPlainText("", text)
     clipboardManager.setPrimaryClip(clip)
+}
+
+fun Context?.showSoftInput(view: View, flag: Int = InputMethodManager.SHOW_FORCED) {
+    if (this == null) {
+        return
+    }
+    val imm: InputMethodManager =
+            getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+
+    imm.showSoftInput(view, flag)
 }

@@ -64,6 +64,12 @@ abstract class BaseBottomSheetDialogFragment : BottomSheetDialogFragment() {
         }
     }
 
+    /**
+     * 是否展开所有内容
+     * 默认情况下当内容高度太高，需要拖动展示
+     *
+     * @return true 则展开所有内容
+     */
     open fun isExpanded(): Boolean {
         return false
     }

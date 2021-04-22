@@ -30,13 +30,10 @@ abstract class BaseFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        onInitView(view, savedInstanceState)
-        onInitData(view, savedInstanceState)
+        onInit(view, savedInstanceState)
     }
 
-    abstract fun onInitData(view: View, savedInstanceState: Bundle?)
-
-    abstract fun onInitView(view: View, savedInstanceState: Bundle?)
+    abstract fun onInit(view: View, savedInstanceState: Bundle?)
 
     @LayoutRes
     abstract fun getLayoutId(): Int

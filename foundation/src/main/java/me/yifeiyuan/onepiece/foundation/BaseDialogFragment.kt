@@ -28,14 +28,11 @@ abstract class BaseDialogFragment : DialogFragment() {
         contentView = view
         //把背景修改为透明 不然设置圆角会露出黑色背景
         (view.parent as View).setBackgroundColor(resources.getColor(android.R.color.transparent))
-        onInitView(view, dialog, savedInstanceState)
-        onInitData(view, dialog, savedInstanceState)
+        onInit(view, dialog, savedInstanceState)
         return dialog
     }
 
-    abstract fun onInitData(view: View, dialog: Dialog, savedInstanceState: Bundle?)
-
-    abstract fun onInitView(view: View?, dialog: Dialog, savedInstanceState: Bundle?)
+    abstract fun onInit(view: View, dialog: Dialog, savedInstanceState: Bundle?)
 
     @LayoutRes
     abstract fun getLayoutId(): Int

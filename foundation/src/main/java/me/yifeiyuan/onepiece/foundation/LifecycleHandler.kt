@@ -11,27 +11,13 @@ import androidx.lifecycle.OnLifecycleEvent
 /**
  * Created by 程序亦非猿 on 2021/3/24.
  */
-class LifecycleHandler : Handler, LifecycleObserver {
+open class LifecycleHandler @JvmOverloads constructor(
+        private var lifecycleOwner: LifecycleOwner,
+        looper: Looper = Looper.getMainLooper(),
+        callback: Callback? = null
+) : Handler(looper, callback), LifecycleObserver {
 
-    private var lifecycleOwner: LifecycleOwner
-
-    constructor(lifecycleOwner: LifecycleOwner) : super() {
-        this.lifecycleOwner = lifecycleOwner
-        addObserver()
-    }
-
-    constructor(callback: Callback, lifecycleOwner: LifecycleOwner) : super(callback) {
-        this.lifecycleOwner = lifecycleOwner
-        addObserver()
-    }
-
-    constructor(looper: Looper, lifecycleOwner: LifecycleOwner) : super(looper) {
-        this.lifecycleOwner = lifecycleOwner
-        addObserver()
-    }
-
-    constructor(looper: Looper, callback: Callback, lifecycleOwner: LifecycleOwner) : super(looper, callback) {
-        this.lifecycleOwner = lifecycleOwner
+    init {
         addObserver()
     }
 

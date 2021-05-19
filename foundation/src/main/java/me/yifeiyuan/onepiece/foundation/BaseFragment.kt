@@ -11,7 +11,11 @@ import androidx.fragment.app.Fragment
 /**
  * Created by 程序亦非猿 on 2021/3/24.
  */
-abstract class BaseFragment : Fragment() {
+abstract class BaseFragment : Fragment {
+
+    constructor() : super() {}
+
+    constructor(contentLayoutId: Int) : super(contentLayoutId) {}
 
     lateinit var hostActivity: Activity
 
@@ -21,9 +25,9 @@ abstract class BaseFragment : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(getLayoutId(), container, false)
     }

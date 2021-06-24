@@ -3,6 +3,8 @@ package me.yifeiyuan.onepiece.pandora
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
+import android.os.Handler
+import android.os.Looper
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import java.io.BufferedReader
@@ -11,6 +13,17 @@ import java.io.InputStreamReader
 /**
  * Created by 程序亦非猿 on 2021/4/7.
  */
+
+val mainHandler = Handler(Looper.getMainLooper())
+
+fun Context.toPixel(dip: Int): Int {
+    val scale: Float = resources.displayMetrics.scaledDensity
+    return (dip * scale + 0.5).toInt()
+}
+
+fun Context.getScreenHeight(): Int {
+    return resources.displayMetrics.heightPixels
+}
 
 /**
  * @param fileName  例如 foo.json
@@ -55,3 +68,4 @@ fun Context?.showSoftInput(view: View, flag: Int = InputMethodManager.SHOW_FORCE
 
     imm.showSoftInput(view, flag)
 }
+

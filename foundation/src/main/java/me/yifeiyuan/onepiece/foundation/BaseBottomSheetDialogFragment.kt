@@ -49,11 +49,12 @@ abstract class BaseBottomSheetDialogFragment : BottomSheetDialogFragment() {
         super.onStart()
         if (isExpanded()) {
             try {
-                val view = (dialog as BottomSheetDialog).delegate.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)
+                val view =
+                    (dialog as BottomSheetDialog).delegate.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)
 
                 view?.let {
                     BottomSheetBehavior.from(it)
-                            .state = BottomSheetBehavior.STATE_EXPANDED
+                        .state = BottomSheetBehavior.STATE_EXPANDED
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
@@ -93,5 +94,19 @@ abstract class BaseBottomSheetDialogFragment : BottomSheetDialogFragment() {
         } catch (e: Exception) {
             e.printStackTrace()
         }
+    }
+
+    override fun dismiss() {
+        if (fragmentManager == null) {
+            return
+        }
+        super.dismiss()
+    }
+
+    override fun dismissAllowingStateLoss() {
+        if (fragmentManager == null) {
+            return
+        }
+        super.dismissAllowingStateLoss()
     }
 }

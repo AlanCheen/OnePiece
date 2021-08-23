@@ -60,4 +60,18 @@ abstract class BaseDialogFragment : DialogFragment() {
             e.printStackTrace()
         }
     }
+
+    override fun dismiss() {
+        if (fragmentManager == null) {
+            return
+        }
+        super.dismiss()
+    }
+
+    override fun dismissAllowingStateLoss() {
+        if (fragmentManager == null) {
+            return
+        }
+        super.dismissAllowingStateLoss()
+    }
 }

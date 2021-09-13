@@ -3,14 +3,39 @@ package me.yifeiyuan.onepiece.pandora
 import android.graphics.Typeface
 import android.text.SpannableString
 import android.text.Spanned
-import android.text.style.BackgroundColorSpan
-import android.text.style.ForegroundColorSpan
-import android.text.style.StyleSpan
-import android.text.style.UnderlineSpan
+import android.text.style.*
 
 /**
  * Created by 程序亦非猿 on 2021/9/13.
  */
+
+fun SpannableString.strikeThrough(
+    start: Int,
+    text: CharSequence,
+    flag: Int = Spanned.SPAN_INCLUSIVE_INCLUSIVE
+): SpannableString {
+    setSpan(StrikethroughSpan(), start, start + text.length, flag)
+    return this
+}
+
+fun SpannableString.strikeThrough(
+    targetText: String, flag: Int = Spanned.SPAN_INCLUSIVE_INCLUSIVE
+): SpannableString {
+    val index = indexOf(targetText, 0)
+    if (index > 0) {
+        setSpan(StrikethroughSpan(), index, index + targetText.length, flag)
+    }
+    return this
+}
+
+fun SpannableString.strikeThrough(
+    start: Int,
+    end: Int,
+    flag: Int = Spanned.SPAN_INCLUSIVE_INCLUSIVE
+): SpannableString {
+    setSpan(StrikethroughSpan(), start, end, flag)
+    return this
+}
 
 fun SpannableString.underLine(
     start: Int,

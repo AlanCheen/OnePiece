@@ -1,4 +1,4 @@
-package me.yifeiyuan.onepiece.foundation
+package me.yifeiyuan.onepiece.foundation.core
 
 import android.app.Activity
 import android.os.Bundle

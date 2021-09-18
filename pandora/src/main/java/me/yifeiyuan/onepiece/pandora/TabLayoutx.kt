@@ -10,6 +10,7 @@ fun TabLayout.doOnTabSelected(func: (tab: TabLayout.Tab) -> Unit) {
     addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
         override fun onTabSelected(tab: TabLayout.Tab) {
             func(tab)
+//            this@doOnTabSelected.selectedTabPosition
         }
 
         override fun onTabUnselected(tab: TabLayout.Tab) {

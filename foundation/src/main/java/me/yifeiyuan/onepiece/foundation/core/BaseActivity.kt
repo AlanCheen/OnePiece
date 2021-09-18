@@ -1,4 +1,4 @@
-package me.yifeiyuan.onepiece.foundation
+package me.yifeiyuan.onepiece.foundation.core
 
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
@@ -15,7 +15,7 @@ open class BaseActivity : AppCompatActivity {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             android.R.id.home -> {
-                finish()
+                onBackPressed()
             }
         }
 

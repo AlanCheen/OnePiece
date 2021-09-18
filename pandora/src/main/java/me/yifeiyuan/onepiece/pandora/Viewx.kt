@@ -73,7 +73,7 @@ fun <T : View> T.doOnThrottledClick(time: Long = 500, func: (v: T) -> Unit) {
                 return
             }
             lastClickTime = clickTime
-            func(v as T)
+            func(this@doOnThrottledClick)
         }
     })
 }

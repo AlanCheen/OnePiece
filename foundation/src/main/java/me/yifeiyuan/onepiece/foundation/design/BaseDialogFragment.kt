@@ -41,6 +41,17 @@ abstract class BaseDialogFragment : DialogFragment() {
         this.show(fragmentActivity.supportFragmentManager, tag)
     }
 
+    fun showSingleton(fragmentActivity: FragmentActivity, tag: String?) {
+        tag?.let {
+            val preInstance = fragmentActivity.supportFragmentManager.findFragmentByTag(tag)
+            if (preInstance is BaseDialogFragment) {
+                preInstance.dismissAllowingStateLoss()
+            }
+        }
+
+        this.show(fragmentActivity.supportFragmentManager, tag)
+    }
+
     override fun show(transaction: FragmentTransaction, tag: String?): Int {
         return super.show(transaction, tag)
     }

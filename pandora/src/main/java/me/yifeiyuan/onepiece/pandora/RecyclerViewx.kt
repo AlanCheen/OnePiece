@@ -20,6 +20,11 @@ fun RecyclerView.scrollToPositionWithOffset(position: Int, offset: Int) {
     }
 }
 
+fun <T :RecyclerView.SimpleOnItemTouchListener> T.attachTo(recyclerView: RecyclerView):T{
+    recyclerView.addOnItemTouchListener(this)
+    return this
+}
+
 fun <T : RecyclerView.LayoutManager> T.attachTo(recyclerView: RecyclerView): T {
     recyclerView.layoutManager = this
     return this

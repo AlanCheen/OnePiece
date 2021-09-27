@@ -1,6 +1,7 @@
 package me.yifeiyuan.onepiece.foundation.design
 
 import android.app.Dialog
+import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.annotation.LayoutRes
@@ -17,25 +18,45 @@ abstract class BaseDialogFragment : DialogFragment() {
 
     protected var contentView: View? = null
 
+    lateinit var hostActivity: FragmentActivity
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        hostActivity = activity as FragmentActivity
+    }
+
     override fun onCreate(@Nullable savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+        if (savedInstanceState != null && dismissWhenRecover()) {
+            dismissAllowingStateLoss()
+            return super.onCreateDialog(savedInstanceState)
+        }
         val dialog: Dialog = super.onCreateDialog(savedInstanceState)
-        val view = View.inflate(context, getLayoutId(), null)
+        val view = onCreateDialogContentView()
         dialog.setContentView(view)
         contentView = view
         //把背景修改为透明 不然设置圆角会露出黑色背景
         (view.parent as View).setBackgroundColor(resources.getColor(android.R.color.transparent))
         onInit(view, dialog, savedInstanceState)
+        onSetupWindow()
         return dialog
     }
 
-    abstract fun onInit(view: View, dialog: Dialog, savedInstanceState: Bundle?)
+    open fun onCreateDialogContentView(): View {
+        return View.inflate(context, getLayoutId(), null)
+    }
 
     @LayoutRes
     abstract fun getLayoutId(): Int
+
+    abstract fun onInit(view: View, dialog: Dialog, savedInstanceState: Bundle?)
+
+    open fun onSetupWindow() {}
+
+    open fun dismissWhenRecover() = true
 
     fun show(fragmentActivity: FragmentActivity, tag: String?) {
         this.show(fragmentActivity.supportFragmentManager, tag)

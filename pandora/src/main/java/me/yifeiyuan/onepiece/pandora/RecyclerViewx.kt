@@ -18,12 +18,10 @@ fun RecyclerView.scrollToTop() {
 fun RecyclerView.scrollToPositionWithOffset(position: Int, offset: Int) {
     layoutManager?.runIfIs(LinearLayoutManager::class.java) {
         scrollToPositionWithOffset(position, offset)
-        return@runIfIs
     }
 
     layoutManager?.runIfIs(GridLayoutManager::class.java) {
         scrollToPositionWithOffset(position, offset)
-        return@runIfIs
     }
 }
 

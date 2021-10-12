@@ -1,13 +1,8 @@
 package me.yifeiyuan.onepiece.pandora
 
 import android.os.SystemClock
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.View
-import android.widget.EditText
-import androidx.recyclerview.widget.RecyclerView
-import androidx.viewpager.widget.ViewPager
-import com.google.android.material.tabs.TabLayout
+import android.widget.Checkable
 
 /**
  * Created by 程序亦非猿 on 2021/6/24.
@@ -21,6 +16,10 @@ fun setViewsVisibility(visibility: Int, vararg views: View) {
     }
 }
 
+/**
+ * 多个 View 设置为 GONE
+ * @param views views
+ */
 fun setViewsGone(vararg views: View) {
 //    views.forEach {
 //        it.visibility = View.GONE
@@ -28,6 +27,10 @@ fun setViewsGone(vararg views: View) {
     setViewsVisibility(View.GONE, *views)
 }
 
+/**
+ * 多个 View 设置为 VISIBLE
+ * @param views views
+ */
 fun setViewsVisible(vararg views: View) {
 //    views.forEach {
 //        it.visibility = View.VISIBLE
@@ -35,6 +38,10 @@ fun setViewsVisible(vararg views: View) {
     setViewsVisibility(View.VISIBLE, *views)
 }
 
+/**
+ * 多个 View 设置为 INVISIBLE
+ * @param views views
+ */
 fun setViewsInvisible(vararg views: View) {
 //    views.forEach {
 //        it.visibility = View.INVISIBLE
@@ -42,26 +49,43 @@ fun setViewsInvisible(vararg views: View) {
     setViewsVisibility(View.INVISIBLE, *views)
 }
 
-fun <T : View> T.goneIf(bool: Boolean): T {
-    this.visibility = if (!bool) View.VISIBLE else View.GONE
+/**
+ * 如果符合 condition==true 就设置为 GONE
+ */
+fun <T : View> T.goneIf(condition: Boolean): T {
+    this.visibility = if (condition) View.GONE else View.VISIBLE
     return this
 }
 
-fun <T : View> T.visibleIf(visible: Boolean): T {
-    this.visibility = if (visible) View.VISIBLE else View.GONE
+fun <T : View> T.visibleIf(condition: Boolean): T {
+    this.visibility = if (condition) View.VISIBLE else View.GONE
     return this
 }
 
+fun <T : View> T.invisibleIf(condition: Boolean): T {
+    this.visibility = if (condition) View.INVISIBLE else View.VISIBLE
+    return this
+}
+
+/**
+ * 设置可见性为 VISIBLE
+ */
 fun <T : View> T.visible(): T {
     this.visibility = View.VISIBLE
     return this
 }
 
+/**
+ * 设置可见性为 INVISIBLE
+ */
 fun <T : View> T.invisible(): T {
     this.visibility = View.INVISIBLE
     return this
 }
 
+/**
+ * 设置可见性为 GONE
+ */
 fun <T : View> T.gone(): T {
     this.visibility = View.GONE
     return this
@@ -74,6 +98,33 @@ fun <T : View> T.enable(): T {
 
 fun <T : View> T.disable(): T {
     this.isEnabled = false
+    return this
+}
+
+fun <T : View> T.selected(): T {
+    isSelected = true
+    return this
+}
+
+fun <T : View> T.unselected(): T {
+    isSelected = false
+    return this
+}
+
+/**
+ * 设置为 勾选状态
+ * CheckBox RadioButton 等实现了 Checkable
+ */
+fun <T : Checkable> T.checked(): T {
+    isChecked = true
+    return this
+}
+
+/**
+ * 设置为 未勾选状态
+ */
+fun <T : Checkable> T.unchecked(): T {
+    isChecked = false
     return this
 }
 
@@ -114,7 +165,13 @@ fun View.shareOnThrottledClick(
     }
 }
 
-fun <T : View> T.doOnThrottledClick(time: Long = 500, func: (v: T) -> Unit) {
+/**
+ * 设置节流点击
+ *
+ * @param time 节流阈值
+ * @param onClick 点击响应
+ */
+fun <T : View> T.onThrottledClick(time: Long = 500, onClick: (v: T) -> Unit): T {
     setOnClickListener(object : View.OnClickListener {
         var lastClickTime: Long = 0
         override fun onClick(v: View) {
@@ -123,7 +180,8 @@ fun <T : View> T.doOnThrottledClick(time: Long = 500, func: (v: T) -> Unit) {
                 return
             }
             lastClickTime = clickTime
-            func(this@doOnThrottledClick)
+            onClick(this@onThrottledClick)
         }
     })
+    return this
 }

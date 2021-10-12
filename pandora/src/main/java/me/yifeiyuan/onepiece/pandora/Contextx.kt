@@ -14,8 +14,6 @@ import java.io.InputStreamReader
  * Created by 程序亦非猿 on 2021/4/7.
  */
 
-val mainHandler = Handler(Looper.getMainLooper())
-
 fun Context.toPixel(dip: Int): Int {
     val scale: Float = resources.displayMetrics.scaledDensity
     return (dip * scale + 0.5).toInt()

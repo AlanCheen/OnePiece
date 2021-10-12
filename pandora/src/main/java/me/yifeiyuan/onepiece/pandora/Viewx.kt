@@ -15,16 +15,66 @@ import com.google.android.material.tabs.TabLayout
 
 fun View.isVisible() = this.visibility == View.VISIBLE
 
-fun View.visible() {
+fun setViewsVisibility(visibility: Int, vararg views: View) {
+    views.forEach {
+        it.visibility = visibility
+    }
+}
+
+fun setViewsGone(vararg views: View) {
+//    views.forEach {
+//        it.visibility = View.GONE
+//    }
+    setViewsVisibility(View.GONE, *views)
+}
+
+fun setViewsVisible(vararg views: View) {
+//    views.forEach {
+//        it.visibility = View.VISIBLE
+//    }
+    setViewsVisibility(View.VISIBLE, *views)
+}
+
+fun setViewsInvisible(vararg views: View) {
+//    views.forEach {
+//        it.visibility = View.INVISIBLE
+//    }
+    setViewsVisibility(View.INVISIBLE, *views)
+}
+
+fun <T : View> T.goneIf(bool: Boolean): T {
+    this.visibility = if (!bool) View.VISIBLE else View.GONE
+    return this
+}
+
+fun <T : View> T.visibleIf(visible: Boolean): T {
+    this.visibility = if (visible) View.VISIBLE else View.GONE
+    return this
+}
+
+fun <T : View> T.visible(): T {
     this.visibility = View.VISIBLE
+    return this
 }
 
-fun View.invisible() {
+fun <T : View> T.invisible(): T {
     this.visibility = View.INVISIBLE
+    return this
 }
 
-fun View.gone() {
+fun <T : View> T.gone(): T {
     this.visibility = View.GONE
+    return this
+}
+
+fun <T : View> T.enable(): T {
+    this.isEnabled = true
+    return this
+}
+
+fun <T : View> T.disable(): T {
+    this.isEnabled = false
+    return this
 }
 
 fun View.wrapWithThrottledClick(listener: View.OnClickListener, time: Long = 500) {

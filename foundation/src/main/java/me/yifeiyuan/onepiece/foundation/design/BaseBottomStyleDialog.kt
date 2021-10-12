@@ -2,6 +2,8 @@ package me.yifeiyuan.onepiece.foundation.design
 
 import android.os.Bundle
 import android.view.Gravity
+import android.view.ViewGroup
+import android.view.Window
 import android.view.WindowManager
 import me.yifeiyuan.onepiece.foundation.R
 
@@ -17,12 +19,14 @@ abstract class BaseBottomStyleDialog : BaseDialogFragment() {
 
     override fun onSetupWindow() {
         super.onSetupWindow()
+
         dialog?.window?.let {
             it.setLayout(
                 WindowManager.LayoutParams.MATCH_PARENT,
                 WindowManager.LayoutParams.WRAP_CONTENT
             )
             it.attributes.gravity = setupDialogGravity()
+            it.attributes = it.attributes
         }
     }
 

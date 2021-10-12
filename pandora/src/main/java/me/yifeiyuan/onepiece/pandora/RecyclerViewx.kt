@@ -8,6 +8,13 @@ import androidx.recyclerview.widget.RecyclerView
  * Created by 程序亦非猿 on 2021/9/13.
  */
 
+/**
+ * 滚动到顶部
+ */
+fun RecyclerView.scrollToTop() {
+    scrollToPositionWithOffset(0, 0)
+}
+
 fun RecyclerView.scrollToPositionWithOffset(position: Int, offset: Int) {
     layoutManager?.runIfIs(LinearLayoutManager::class.java) {
         scrollToPositionWithOffset(position, offset)
@@ -35,7 +42,7 @@ fun <T : RecyclerView.Adapter<*>> T.attachTo(recyclerView: RecyclerView): T {
     return this
 }
 
-fun RecyclerView.doOnScrolled(func: (recyclerView: RecyclerView, dx: Int, dy: Int) -> Unit) {
+fun RecyclerView.onScrolled(func: (recyclerView: RecyclerView, dx: Int, dy: Int) -> Unit) {
     addOnScrollListener(object : RecyclerView.OnScrollListener() {
         override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
             super.onScrollStateChanged(recyclerView, newState)

@@ -1,8 +1,9 @@
-package me.yifeiyuan.onepiece.pandora
+package me.yifeiyuan.onepiece.pandora.ktx.ui
 
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import me.yifeiyuan.onepiece.pandora.ktx.runIfIs
 
 /**
  * Created by 程序亦非猿 on 2021/9/13.

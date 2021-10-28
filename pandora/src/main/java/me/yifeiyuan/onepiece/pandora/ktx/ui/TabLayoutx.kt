@@ -1,4 +1,4 @@
-package me.yifeiyuan.onepiece.pandora
+package me.yifeiyuan.onepiece.pandora.ktx.ui
 
 import com.google.android.material.tabs.TabLayout
 

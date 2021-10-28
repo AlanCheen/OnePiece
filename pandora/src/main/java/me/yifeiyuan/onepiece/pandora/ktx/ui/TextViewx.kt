@@ -1,4 +1,4 @@
-package me.yifeiyuan.onepiece.pandora
+package me.yifeiyuan.onepiece.pandora.ktx.ui
 
 import android.widget.TextView
 import androidx.core.content.ContextCompat

@@ -1,10 +1,8 @@
-package me.yifeiyuan.onepiece.pandora
+package me.yifeiyuan.onepiece.pandora.ktx
 
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
-import android.os.Handler
-import android.os.Looper
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import java.io.BufferedReader

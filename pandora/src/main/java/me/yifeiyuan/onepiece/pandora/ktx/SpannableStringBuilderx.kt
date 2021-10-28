@@ -1,4 +1,4 @@
-package me.yifeiyuan.onepiece.pandora
+package me.yifeiyuan.onepiece.pandora.ktx
 
 import android.graphics.Typeface
 import android.text.SpannableStringBuilder

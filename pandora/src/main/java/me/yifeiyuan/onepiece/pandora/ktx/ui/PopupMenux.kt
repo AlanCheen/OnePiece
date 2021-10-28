@@ -1,4 +1,4 @@
-package me.yifeiyuan.onepiece.pandora
+package me.yifeiyuan.onepiece.pandora.ktx.ui
 
 import android.annotation.SuppressLint
 import android.widget.PopupMenu
@@ -15,11 +15,11 @@ import java.lang.reflect.Field
  * 需要反射调用开启
  */
 @SuppressLint("RestrictedApi")
-fun PopupMenu.showIcon() {
+fun PopupMenu.setForceShowIcon(forceShowIcon: Boolean = true) {
     try {
         val field: Field = PopupMenu::class.java.getDeclaredField("mPopup")
         field.isAccessible = true
-        (field.get(this) as MenuPopupHelper).setForceShowIcon(true)
+        (field.get(this) as MenuPopupHelper).setForceShowIcon(forceShowIcon)
     } catch (e: NoSuchFieldException) {
         e.printStackTrace()
     } catch (e: IllegalAccessException) {

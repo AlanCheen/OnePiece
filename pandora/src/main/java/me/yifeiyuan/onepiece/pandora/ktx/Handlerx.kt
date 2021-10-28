@@ -1,4 +1,4 @@
-package me.yifeiyuan.onepiece.pandora
+package me.yifeiyuan.onepiece.pandora.ktx
 
 import android.os.Handler
 import android.os.Looper
@@ -7,16 +7,16 @@ import android.os.Looper
  * Created by 程序亦非猿 on 2021/10/12.
  */
 
-val mainThread = Handler(Looper.getMainLooper())
+val mainThreadHandler = Handler(Looper.getMainLooper())
 
 fun runOnMainThread(runnable: Runnable) {
-    mainThread.post(runnable)
+    mainThreadHandler.post(runnable)
 }
 
 fun runOnMainThreadDelayed(delay: Long, runnable: Runnable) {
-    mainThread.postDelayed(runnable, delay)
+    mainThreadHandler.postDelayed(runnable, delay)
 }
 
 fun removeMainThreadRunnable(runnable: Runnable) {
-    mainThread.removeCallbacks(runnable)
+    mainThreadHandler.removeCallbacks(runnable)
 }

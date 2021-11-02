@@ -11,6 +11,6 @@ interface ICallback<R, E> {
 
     fun onError(error: E)
 
-    fun onComplete() {}
+//    fun onComplete() {}
 
 }

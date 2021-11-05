@@ -14,7 +14,7 @@ fun <T> Any.runIfIs(clazz: Class<T>, block: T.() -> Unit) {
 
 /**
  *
- * 为什么不用 Looper.myLooper() == Looper.getMainLooper()？ 因为 myLooper() 可能会创建 ThreadLocalMap 导致浪费
+ * 为什么不用 Looper.myLooper() == Looper.getMainLooper()？ 因为 myLooper() 可能会创建 ThreadLocalMap 导致浪费，而用 Thread 判断不需要
  */
 fun isOnMainThread() :Boolean{
     return Looper.getMainLooper().thread == Thread.currentThread()

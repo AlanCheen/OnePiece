@@ -6,7 +6,7 @@ import androidx.viewpager.widget.ViewPager
  * Created by 程序亦非猿 on 2021/9/13.
  */
 
-fun ViewPager.onPageScrolled(
+fun ViewPager.doOnPageScrolled(
     func: (
         position: Int,
         positionOffset: Float,

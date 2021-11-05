@@ -49,6 +49,6 @@ fun SpannableStringBuilder.foregroundColor(
     setSpan(ForegroundColorSpan(color), start, start + text.length, flag)
 }
 
-fun SpannableStringBuilder.bindTo(textView: TextView) {
+fun SpannableStringBuilder.applyTo(textView: TextView) {
     textView.text = this
 }

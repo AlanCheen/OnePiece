@@ -9,14 +9,14 @@ import android.widget.TextView
  * KTX for CharSequence
  */
 
-fun CharSequence.toSpannable(): SpannableString {
+fun CharSequence.toSpannableString(): SpannableString {
     return SpannableString(this)
 }
 
-fun CharSequence.toSpannableDSL(builder: SpannableString.() -> Unit): SpannableString {
+fun CharSequence.toSpannableStringDSL(builder: SpannableString.() -> Unit): SpannableString {
     return SpannableString(this).apply(builder)
 }
 
-fun CharSequence.bindTo(textView: TextView) {
+fun CharSequence.applyTo(textView: TextView) {
     textView.text = this
 }

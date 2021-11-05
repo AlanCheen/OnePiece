@@ -23,13 +23,13 @@ class SpannableStringBuilderDSL : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        "SpannableStringBuilderDSL test case".toSpannableDSL {
+        "SpannableStringBuilderDSL test case".toSpannableStringDSL {
             bold(0,"SpannableStringBuilderDSL")
             foregroundColor(Color.RED,10,15)
             foregroundColor(Color.RED,"case")
             backgroundColor(Color.BLUE,"test")
             italic(0,"able")
-        }.bindTo(view.findViewById(R.id.result))
+        }.applyTo(view.findViewById(R.id.result))
     }
 
 }

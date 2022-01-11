@@ -45,7 +45,7 @@ dependencies {
 //    implementation 'com.github.AlanCheen.OnePiece:fantasy:1.0.0'
 
 
-//    implementation project(path: ':pandora')
+    implementation project(path: ':pandora')
     implementation project(path: ':fantasy')
     implementation project(path: ':foundation')
 //    implementation 'androidx.legacy:legacy-support-v4:1.0.0'

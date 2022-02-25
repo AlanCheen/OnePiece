@@ -4,6 +4,8 @@ import android.app.Activity
 import android.content.Context
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 
 /**
  * Created by 程序亦非猿 on 2021/4/12.
@@ -33,5 +35,13 @@ fun Activity?.hideSoftInput(flag: Int = InputMethodManager.HIDE_NOT_ALWAYS) {
         imm.hideSoftInputFromWindow(currentFocus!!.windowToken, flag)
     } else {
         imm.hideSoftInputFromWindow(window.decorView.windowToken, flag)
+    }
+}
+
+fun FragmentActivity.clearFragments() {
+    val listFragment: List<Fragment> = supportFragmentManager.fragments
+    for (fragment in listFragment) {
+        supportFragmentManager.beginTransaction().remove(fragment)
+            .commitAllowingStateLoss()
     }
 }

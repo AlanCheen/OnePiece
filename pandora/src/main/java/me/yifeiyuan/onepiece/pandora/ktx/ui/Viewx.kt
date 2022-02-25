@@ -21,10 +21,9 @@ fun setViewsVisibility(visibility: Int, vararg views: View) {
  * @param views views
  */
 fun setViewsGone(vararg views: View) {
-//    views.forEach {
-//        it.visibility = View.GONE
-//    }
-    setViewsVisibility(View.GONE, *views)
+    views.forEach {
+        it.visibility = View.GONE
+    }
 }
 
 /**
@@ -32,10 +31,9 @@ fun setViewsGone(vararg views: View) {
  * @param views views
  */
 fun setViewsVisible(vararg views: View) {
-//    views.forEach {
-//        it.visibility = View.VISIBLE
-//    }
-    setViewsVisibility(View.VISIBLE, *views)
+    views.forEach {
+        it.visibility = View.VISIBLE
+    }
 }
 
 /**
@@ -43,10 +41,9 @@ fun setViewsVisible(vararg views: View) {
  * @param views views
  */
 fun setViewsInvisible(vararg views: View) {
-//    views.forEach {
-//        it.visibility = View.INVISIBLE
-//    }
-    setViewsVisibility(View.INVISIBLE, *views)
+    views.forEach {
+        it.visibility = View.INVISIBLE
+    }
 }
 
 /**
@@ -171,7 +168,7 @@ fun View.shareOnThrottledClick(
  * @param time 节流阈值
  * @param onClick 点击响应
  */
-fun <T : View> T.onThrottledClick(time: Long = 500, onClick: (v: T) -> Unit): T {
+fun <T : View> T.doOnThrottledClick(time: Long = 500, onClick: (v: T) -> Unit): T {
     setOnClickListener(object : View.OnClickListener {
         var lastClickTime: Long = 0
         override fun onClick(v: View) {
@@ -180,7 +177,7 @@ fun <T : View> T.onThrottledClick(time: Long = 500, onClick: (v: T) -> Unit): T 
                 return
             }
             lastClickTime = clickTime
-            onClick(this@onThrottledClick)
+            onClick(this@doOnThrottledClick)
         }
     })
     return this

@@ -16,7 +16,7 @@ fun RecyclerView.scrollToTop() {
     scrollToPositionWithOffset(0, 0)
 }
 
-fun RecyclerView.scrollToPositionWithOffset(position: Int, offset: Int) {
+fun RecyclerView.scrollToPositionWithOffset(position: Int, offset: Int = 0) {
     layoutManager?.runIfIs(LinearLayoutManager::class.java) {
         scrollToPositionWithOffset(position, offset)
     }
@@ -26,7 +26,7 @@ fun RecyclerView.scrollToPositionWithOffset(position: Int, offset: Int) {
     }
 }
 
-fun <T :RecyclerView.SimpleOnItemTouchListener> T.attachTo(recyclerView: RecyclerView):T{
+fun <T : RecyclerView.SimpleOnItemTouchListener> T.attachTo(recyclerView: RecyclerView): T {
     recyclerView.addOnItemTouchListener(this)
     return this
 }
@@ -41,7 +41,7 @@ fun <T : RecyclerView.Adapter<*>> T.attachTo(recyclerView: RecyclerView): T {
     return this
 }
 
-fun RecyclerView.onScrolled(func: (recyclerView: RecyclerView, dx: Int, dy: Int) -> Unit) {
+fun RecyclerView.doOnScrolled(func: (recyclerView: RecyclerView, dx: Int, dy: Int) -> Unit) {
     addOnScrollListener(object : RecyclerView.OnScrollListener() {
         override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
             super.onScrollStateChanged(recyclerView, newState)
@@ -54,7 +54,7 @@ fun RecyclerView.onScrolled(func: (recyclerView: RecyclerView, dx: Int, dy: Int)
     })
 }
 
-fun RecyclerView.onScrollStateChanged(func: (recyclerView: RecyclerView, newState: Int) -> Unit) {
+fun RecyclerView.doOnScrollStateChanged(func: (recyclerView: RecyclerView, newState: Int) -> Unit) {
     addOnScrollListener(object : RecyclerView.OnScrollListener() {
         override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
             super.onScrollStateChanged(recyclerView, newState)

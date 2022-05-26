@@ -5,6 +5,7 @@ import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
+import android.content.res.Configuration
 import android.net.ConnectivityManager
 import android.os.Build
 import android.view.View
@@ -92,4 +93,12 @@ fun Context.isNetworkAvailable(): Boolean {
         return manager.activeNetworkInfo!!.isAvailable
     }
     return false
+}
+
+/**
+ * 判断当前是否是暗黑模式
+ */
+fun Context.isDarkMode(): Boolean {
+    val uiMode = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
+    return uiMode == Configuration.UI_MODE_NIGHT_YES
 }

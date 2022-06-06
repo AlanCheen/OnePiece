@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="pandora_BottomSheetDialogStyle" parent="Theme.Design.Light.BottomSheetDialog">
+    <style name="pandora_BottomSheetDialogStyle" >
 <!--        <item name="android:backgroundDimAmount">0.2</item>-->
     </style>
 

@@ -3,14 +3,18 @@ package me.yifeiyuan.onepiece.foundation.data
 /**
  * Created by 程序亦非猿 on 2021/9/18.
  */
-interface ICallback<R, E> {
+interface ICallback<Result, Error> {
 
     fun onStart() {}
 
-    fun onSuccess(result: R)
+    fun onSuccess(result: Result) {
+        this.onComplete(true)
+    }
 
-    fun onError(error: E)
+    fun onError(error: Error) {
+        this.onComplete(false)
+    }
 
-//    fun onComplete() {}
+    fun onComplete(success: Boolean) {}
 
 }

@@ -1,15 +1,50 @@
 package me.yifeiyuan.onepiece.pandora.ktx.ui
 
+import android.app.Activity
 import android.os.SystemClock
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.Checkable
 
 /**
  * Created by 程序亦非猿 on 2021/6/24.
  */
 
-fun View.isVisible() = this.visibility == View.VISIBLE
+val View.activity
+    get() = context as Activity
 
+fun <T : Activity> View.asActivity() = context as T
+
+/**
+ * view.isVisible = xxx
+ *
+ * @see visible
+ * @see visibleIf
+ * @see invisible
+ * @see invisibleIf
+ * @see gone
+ * @see goneIf
+ */
+var View.isVisible: Boolean
+    set(value) {
+        visibility = if (value) {
+            View.VISIBLE
+        } else {
+            View.GONE
+        }
+    }
+    get() = visibility == View.VISIBLE
+
+
+/**
+ * 多个 View 的可见性
+ * @param visibility 可见性
+ * @param views views
+ * @see setViewsGone
+ * @see setViewsVisible
+ * @see setViewsInvisible
+ */
 fun setViewsVisibility(visibility: Int, vararg views: View) {
     views.forEach {
         it.visibility = visibility
@@ -54,11 +89,17 @@ fun <T : View> T.goneIf(condition: Boolean): T {
     return this
 }
 
+/**
+ * 如果符合 condition==true 就设置为 VISIBLE
+ */
 fun <T : View> T.visibleIf(condition: Boolean): T {
     this.visibility = if (condition) View.VISIBLE else View.GONE
     return this
 }
 
+/**
+ * 如果符合 condition==true 就设置为 INVISIBLE
+ */
 fun <T : View> T.invisibleIf(condition: Boolean): T {
     this.visibility = if (condition) View.INVISIBLE else View.VISIBLE
     return this
@@ -182,3 +223,9 @@ fun <T : View> T.doOnThrottledClick(time: Long = 500, onClick: (v: T) -> Unit): 
     })
     return this
 }
+
+
+fun ViewGroup.inflate(resId: Int): View {
+    return LayoutInflater.from(context).inflate(resId, this, false)
+}
+

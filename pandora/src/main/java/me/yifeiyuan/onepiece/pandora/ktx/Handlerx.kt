@@ -10,7 +10,11 @@ import android.os.Looper
 val mainThreadHandler = Handler(Looper.getMainLooper())
 
 fun runOnMainThread(runnable: Runnable) {
-    mainThreadHandler.post(runnable)
+    if (isMainThread()) {
+        runnable.run()
+    } else {
+        mainThreadHandler.post(runnable)
+    }
 }
 
 fun runOnMainThreadDelayed(delay: Long, runnable: Runnable) {
@@ -20,3 +24,9 @@ fun runOnMainThreadDelayed(delay: Long, runnable: Runnable) {
 fun removeMainThreadRunnable(runnable: Runnable) {
     mainThreadHandler.removeCallbacks(runnable)
 }
+
+//fun <T>T.runOnMainThread(block: T.() -> Unit){
+//    mainThreadHandler.post {
+//        block()
+//    }
+//}

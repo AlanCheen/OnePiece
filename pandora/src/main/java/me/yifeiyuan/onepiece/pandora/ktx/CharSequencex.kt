@@ -20,3 +20,11 @@ fun CharSequence.toSpannableStringDSL(builder: SpannableString.() -> Unit): Span
 fun CharSequence.applyTo(textView: TextView) {
     textView.text = this
 }
+
+//已经有 ifEmpty 了
+//fun CharSequence.ifEmpty(func: () -> CharSequence?): CharSequence? {
+//    if (isEmpty()) {
+//        return func()
+//    }
+//    return this
+//}

@@ -7,6 +7,8 @@ import me.yifeiyuan.onepiece.pandora.ktx.runIfIs
 
 /**
  * Created by 程序亦非猿 on 2021/9/13.
+ *
+ * 关于 RecyclerView 的扩展
  */
 
 /**

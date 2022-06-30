@@ -11,6 +11,7 @@ import android.os.Build
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.annotation.RequiresApi
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import java.io.BufferedReader
 import java.io.InputStreamReader
 
@@ -101,4 +102,12 @@ fun Context.isNetworkAvailable(): Boolean {
 fun Context.isDarkMode(): Boolean {
     val uiMode = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
     return uiMode == Configuration.UI_MODE_NIGHT_YES
+}
+
+fun Context.sendLocalBroadcast(intent: Intent) {
+    LocalBroadcastManager.getInstance(this).sendBroadcast(intent)
+}
+
+fun Context.sendLocalBroadcastSync(intent: Intent) {
+    LocalBroadcastManager.getInstance(this).sendBroadcastSync(intent)
 }

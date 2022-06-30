@@ -7,12 +7,6 @@ import android.os.Looper
  * Created by 程序亦非猿 on 2021/9/13.
  */
 
-fun <T> Any.runIfIs(clazz: Class<T>, block: T.() -> Unit) {
-    if (clazz.isAssignableFrom(this::class.java)) {
-        block(this as T)
-    }
-}
-
 /**
  * 在 try 块中执行，会 catch 异常并打印
  */
@@ -33,4 +27,22 @@ fun <T> T.tryExecute(block: T.() -> Unit): T {
  */
 fun isMainThread(): Boolean {
     return Looper.getMainLooper().thread == Thread.currentThread()
+}
+
+fun <T> T.runOnMainThread(block: T.() -> Unit) {
+    mainThreadHandler.post {
+        block()
+    }
+}
+
+inline fun <reified T> Any.runIfIs(block: T.() -> Unit) {
+    if (this.javaClass.isAssignableFrom(T::class.java)) {
+        block(this as T)
+    }
+}
+
+inline fun <reified R> Any.runAs(block: (R) -> Unit) {
+    if (this is R) {
+        block(this)
+    }
 }

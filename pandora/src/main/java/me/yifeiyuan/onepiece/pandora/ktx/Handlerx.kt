@@ -24,9 +24,3 @@ fun runOnMainThreadDelayed(delay: Long, runnable: Runnable) {
 fun removeMainThreadRunnable(runnable: Runnable) {
     mainThreadHandler.removeCallbacks(runnable)
 }
-
-//fun <T>T.runOnMainThread(block: T.() -> Unit){
-//    mainThreadHandler.post {
-//        block()
-//    }
-//}

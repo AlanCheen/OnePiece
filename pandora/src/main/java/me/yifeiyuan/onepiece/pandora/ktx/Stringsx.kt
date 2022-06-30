@@ -2,12 +2,38 @@ package me.yifeiyuan.onepiece.pandora.ktx
 
 import android.graphics.Typeface
 import android.text.SpannableString
+import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.text.style.*
+import android.widget.TextView
 
 /**
- * Created by 程序亦非猿 on 2021/9/13.
+ * Created by 程序亦非猿 on 2021/8/31.
+ *
+ * KTX for CharSequence、String、Spannable
  */
+
+fun CharSequence.toSpannableString(): SpannableString {
+    return SpannableString(this)
+}
+
+fun CharSequence.toSpannableStringDSL(builder: SpannableString.() -> Unit): SpannableString {
+    return SpannableString(this).apply(builder)
+}
+
+fun CharSequence.applyTo(textView: TextView) {
+    textView.text = this
+}
+
+//已经有 ifEmpty 了
+//fun CharSequence.ifEmpty(func: () -> CharSequence?): CharSequence? {
+//    if (isEmpty()) {
+//        return func()
+//    }
+//    return this
+//}
+
+
 
 fun SpannableString.strikeThrough(
     start: Int,
@@ -211,4 +237,45 @@ fun SpannableString.foregroundColor(
 ): SpannableString {
     setSpan(ForegroundColorSpan(color), start, end, flag)
     return this
+}
+
+
+fun CharSequence.toSpannableStringBuilder(builder: SpannableStringBuilder.() -> Unit): SpannableStringBuilder {
+    return SpannableStringBuilder(this).apply(builder)
+}
+
+fun SpannableStringBuilder.bold(
+    start: Int, end: Int,
+    flag: Int = Spanned.SPAN_INCLUSIVE_INCLUSIVE
+) {
+    setSpan(StyleSpan(Typeface.BOLD), start, end, flag)
+}
+
+fun SpannableStringBuilder.bold(
+    start: Int, text: CharSequence,
+    flag: Int = Spanned.SPAN_INCLUSIVE_INCLUSIVE
+) {
+    setSpan(StyleSpan(Typeface.BOLD), start, start + text.length, flag)
+}
+
+fun SpannableStringBuilder.foregroundColor(
+    color: Int,
+    start: Int,
+    end: Int,
+    flag: Int = Spanned.SPAN_INCLUSIVE_INCLUSIVE
+) {
+    setSpan(ForegroundColorSpan(color), start, end, flag)
+}
+
+fun SpannableStringBuilder.foregroundColor(
+    color: Int,
+    start: Int,
+    text: CharSequence,
+    flag: Int = Spanned.SPAN_INCLUSIVE_INCLUSIVE
+) {
+    setSpan(ForegroundColorSpan(color), start, start + text.length, flag)
+}
+
+fun SpannableStringBuilder.applyTo(textView: TextView) {
+    textView.text = this
 }

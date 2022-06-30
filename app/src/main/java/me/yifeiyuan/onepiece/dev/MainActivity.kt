@@ -3,6 +3,9 @@ package me.yifeiyuan.onepiece.dev
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import me.yifeiyuan.onepiece.foundation.core.Executable
+import me.yifeiyuan.onepiece.pandora.ktx.runAs
+import me.yifeiyuan.onepiece.pandora.ktx.runIfIs
+import me.yifeiyuan.onepiece.pandora.ktx.runOnMainThread
 import me.yifeiyuan.onepiece.pandora.ktx.start
 
 class MainActivity : AppCompatActivity() {
@@ -11,6 +14,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
+        val s :String ="1"
+        s.runIfIs<AppCompatActivity> {
+
+        }
     }
 
     fun testContext() {

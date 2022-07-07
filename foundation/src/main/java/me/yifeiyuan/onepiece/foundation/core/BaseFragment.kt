@@ -1,6 +1,7 @@
 package me.yifeiyuan.onepiece.foundation.core
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -25,11 +26,12 @@ abstract class BaseFragment : Fragment {
     }
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(getLayoutId(), container, false)
+        val view = super.onCreateView(inflater, container, savedInstanceState)
+        return view ?: inflater.inflate(getLayoutId(), container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -37,10 +39,10 @@ abstract class BaseFragment : Fragment {
         onInit(view, savedInstanceState)
     }
 
-    abstract fun onInit(view: View, savedInstanceState: Bundle?)
-
     @LayoutRes
     abstract fun getLayoutId(): Int
+
+    abstract fun onInit(view: View, savedInstanceState: Bundle?)
 
     override fun onResume() {
         super.onResume()
@@ -50,4 +52,10 @@ abstract class BaseFragment : Fragment {
         super.onPause()
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        for (fragment in childFragmentManager.fragments) {
+            fragment.onActivityResult(requestCode, resultCode, data)
+        }
+    }
 }

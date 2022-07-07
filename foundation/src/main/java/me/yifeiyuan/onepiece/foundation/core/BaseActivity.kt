@@ -1,5 +1,6 @@
 package me.yifeiyuan.onepiece.foundation.core
 
+import android.content.Intent
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 
@@ -20,6 +21,13 @@ open class BaseActivity : AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        for (fragment in supportFragmentManager.fragments) {
+            fragment.onActivityResult(requestCode, resultCode, data)
+        }
     }
 
 }

@@ -1,16 +1,17 @@
 package me.yifeiyuan.onepiece.pandora.ktx
 
 import android.app.Activity
+import android.app.ActivityManager
+import android.app.ActivityManager.RunningAppProcessInfo
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
 import android.net.ConnectivityManager
-import android.os.Build
+import android.os.Process
 import android.view.View
 import android.view.inputmethod.InputMethodManager
-import androidx.annotation.RequiresApi
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import java.io.BufferedReader
 import java.io.InputStreamReader
@@ -110,4 +111,25 @@ fun Context.sendLocalBroadcast(intent: Intent) {
 
 fun Context.sendLocalBroadcastSync(intent: Intent) {
     LocalBroadcastManager.getInstance(this).sendBroadcastSync(intent)
+}
+
+/**
+ * 获取当前进程名
+ * @return 进程名
+ */
+fun Context.getProgressName(): String {
+
+    val pid = Process.myPid()
+
+    val mActivityManager: ActivityManager =
+        getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
+
+    val list: List<RunningAppProcessInfo> = mActivityManager.runningAppProcesses
+
+    for (appProcess in list) {
+        if (appProcess.pid == pid) {
+            return appProcess.processName
+        }
+    }
+    return ""
 }

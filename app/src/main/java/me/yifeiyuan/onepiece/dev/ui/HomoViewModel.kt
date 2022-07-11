@@ -1,5 +1,6 @@
 package me.yifeiyuan.onepiece.dev.ui
 
+import me.yifeiyuan.onepiece.dev.domain.HomeUserCase
 import me.yifeiyuan.onepiece.foundation.core.BaseViewModel
 
 /**
@@ -7,7 +8,13 @@ import me.yifeiyuan.onepiece.foundation.core.BaseViewModel
  */
 class HomoViewModel : BaseViewModel() {
 
+    val homeUserCase = HomeUserCase()
+
     override fun onStart() {
         TODO("Not yet implemented")
+    }
+
+    fun getHomePageData(){
+        homeUserCase.getHomePageData()
     }
 }

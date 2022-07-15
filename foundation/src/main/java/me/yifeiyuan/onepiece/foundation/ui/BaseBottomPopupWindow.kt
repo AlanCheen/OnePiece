@@ -1,7 +1,7 @@
-package me.yifeiyuan.onepiece.foundation
+package me.yifeiyuan.onepiece.foundation.ui
 
 import android.content.Context
-import me.yifeiyuan.onepiece.foundation.design.BasePopupWindow
+import me.yifeiyuan.onepiece.foundation.ui.BasePopupWindow
 
 /**
  * Created by 程序亦非猿 on 2021/4/7.

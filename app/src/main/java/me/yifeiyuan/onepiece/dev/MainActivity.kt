@@ -2,11 +2,9 @@ package me.yifeiyuan.onepiece.dev
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import me.yifeiyuan.onepiece.foundation.core.Executable
-import me.yifeiyuan.onepiece.pandora.ktx.runAs
 import me.yifeiyuan.onepiece.pandora.ktx.runIfIs
-import me.yifeiyuan.onepiece.pandora.ktx.runOnMainThread
 import me.yifeiyuan.onepiece.pandora.ktx.start
+import me.yifeiyuan.onepiece.pandora.ktx.startNewThread
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,15 +25,26 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
 
-        testExecutable(object:Executable<String>{
-            override fun execute(params: String) {
+        testFunction {
+            "a"
+        }
+
+        testFunction(object : Function0<String> {
+            override fun invoke(): String {
+                return ""
             }
         })
+
+        startNewThread {
+
+        }
     }
 
-    private fun testExecutable(executable: Executable<String>) {
-        executable.execute("test")
+
+    private fun testFunction(func:Function0<String>){
+        func()
     }
+
 
     private fun testC() {
 

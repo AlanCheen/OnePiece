@@ -1,4 +1,4 @@
-package me.yifeiyuan.onepiece.foundation.design
+package me.yifeiyuan.onepiece.foundation.ui
 
 import android.app.Activity
 import android.content.Context

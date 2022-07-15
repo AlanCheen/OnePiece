@@ -1,9 +1,7 @@
-package me.yifeiyuan.onepiece.foundation.design
+package me.yifeiyuan.onepiece.foundation.ui
 
 import android.os.Bundle
 import android.view.Gravity
-import android.view.ViewGroup
-import android.view.Window
 import android.view.WindowManager
 import me.yifeiyuan.onepiece.foundation.R
 

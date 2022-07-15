@@ -40,7 +40,7 @@ abstract class BaseFragment : Fragment {
     }
 
     @LayoutRes
-    abstract fun getLayoutId(): Int
+    fun getLayoutId(): Int = 0
 
     abstract fun onInit(view: View, savedInstanceState: Bundle?)
 

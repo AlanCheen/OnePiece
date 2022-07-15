@@ -1,4 +1,4 @@
-package me.yifeiyuan.onepiece.foundation
+package me.yifeiyuan.onepiece.foundation.core
 
 import android.os.Bundle
 import android.util.Log
@@ -6,7 +6,6 @@ import android.view.View
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LifecycleRegistry
-import me.yifeiyuan.onepiece.foundation.core.BaseFragment
 
 /**
  * Created by 程序亦非猿 on 2021/4/22.
@@ -20,7 +19,7 @@ import me.yifeiyuan.onepiece.foundation.core.BaseFragment
  */
 abstract class LazyLoadFragment : BaseFragment() {
 
-    companion object{
+    companion object {
         private const val TAG = "LazyLoadFragment"
     }
 

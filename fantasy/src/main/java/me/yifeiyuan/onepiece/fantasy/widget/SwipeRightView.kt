@@ -1,4 +1,4 @@
-package me.yifeiyuan.onepiece.foundation
+package me.yifeiyuan.onepiece.fantasy.widget
 
 import android.content.Context
 import android.util.AttributeSet
@@ -10,7 +10,7 @@ import androidx.customview.widget.ViewDragHelper
 
 /**
  * Created by 程序亦非猿 on 2021/4/7.
- *
+ * todo
  */
 class SwipeRightView @JvmOverloads constructor(context: Context?, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : LinearLayout(context, attrs, defStyleAttr) {
 

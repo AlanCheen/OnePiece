@@ -3,7 +3,7 @@ package me.yifeiyuan.onepiece.pandora.ktx.ui
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import me.yifeiyuan.onepiece.pandora.ktx.runIfIs
+import me.yifeiyuan.onepiece.pandora.ktx.ifIs
 
 /**
  * Created by 程序亦非猿 on 2021/9/13.
@@ -19,11 +19,11 @@ fun RecyclerView.scrollToTop() {
 }
 
 fun RecyclerView.scrollToPositionWithOffset(position: Int, offset: Int = 0) {
-    layoutManager?.runIfIs<LinearLayoutManager>() {
+    layoutManager?.ifIs<LinearLayoutManager>() {
         scrollToPositionWithOffset(position, offset)
     }
 
-    layoutManager?.runIfIs<GridLayoutManager>() {
+    layoutManager?.ifIs<GridLayoutManager>() {
         scrollToPositionWithOffset(position, offset)
     }
 }

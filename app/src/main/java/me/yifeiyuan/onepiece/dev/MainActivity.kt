@@ -2,9 +2,7 @@ package me.yifeiyuan.onepiece.dev
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import me.yifeiyuan.onepiece.pandora.ktx.runIfIs
-import me.yifeiyuan.onepiece.pandora.ktx.start
-import me.yifeiyuan.onepiece.pandora.ktx.startNewThread
+import me.yifeiyuan.onepiece.pandora.ktx.*
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,7 +11,20 @@ class MainActivity : AppCompatActivity() {
 
 
         val s :String ="1"
-        s.runIfIs<AppCompatActivity> {
+        s.ifIs<String> {
+
+        }
+
+        s.runAs<String> {
+
+        }
+        s.ifBlank {
+
+        }
+        s.ifEmpty {
+
+        }
+        runWithTryCatch {
 
         }
     }

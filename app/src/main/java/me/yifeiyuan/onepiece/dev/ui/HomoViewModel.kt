@@ -6,15 +6,14 @@ import me.yifeiyuan.onepiece.foundation.core.BaseViewModel
 /**
  * Created by 程序亦非猿 on 2022/7/6.
  */
-class HomoViewModel : BaseViewModel() {
+class HomoViewModel(val homeUserCase: HomeUserCase = HomeUserCase()) : BaseViewModel() {
 
-    val homeUserCase = HomeUserCase()
 
     override fun onStart() {
         TODO("Not yet implemented")
     }
 
-    fun getHomePageData(){
+    fun getHomePageData() {
         homeUserCase.getHomePageData()
     }
 }

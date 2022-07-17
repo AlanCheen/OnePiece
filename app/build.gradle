@@ -44,7 +44,6 @@ dependencies {
 //    implementation 'com.github.AlanCheen.OnePiece:foundation:1.0.0'
 //    implementation 'com.github.AlanCheen.OnePiece:fantasy:1.0.0'
 
-
     implementation project(path: ':pandora')
     implementation project(path: ':fantasy')
     implementation project(path: ':foundation')

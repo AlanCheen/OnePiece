@@ -1,7 +1,12 @@
 # OnePiece
 
 
-## Foundation
+## Architecture
+
+关于架构的基础封装。
+- ui layer
+- data layer
+- domain layer
 
 Base and Common classes
 
@@ -10,5 +15,9 @@ Base and Common classes
 KTX & Utils
 
 ## Fantasy
+
+UI widgets 。
+
+自定义控件、动画等。
 
 Design

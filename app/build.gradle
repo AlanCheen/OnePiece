@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 31
     buildToolsVersion "30.0.3"
 
     defaultConfig {
@@ -46,7 +46,7 @@ dependencies {
 
     implementation project(path: ':pandora')
     implementation project(path: ':fantasy')
-    implementation project(path: ':foundation')
+    implementation project(path: ':architecture')
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 //    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.13.2'

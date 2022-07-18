@@ -5,7 +5,10 @@ import android.text.TextWatcher
 import android.widget.EditText
 
 /**
+ * EditText 的扩展
+ *
  * Created by 程序亦非猿 on 2021/9/13.
+ *
  */
 
 fun EditText.doOnTextChanged(func: (s: CharSequence, start: Int, before: Int, count: Int) -> Unit) {

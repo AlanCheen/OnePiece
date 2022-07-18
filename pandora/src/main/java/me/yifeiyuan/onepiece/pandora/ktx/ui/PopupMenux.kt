@@ -11,8 +11,9 @@ import java.lang.reflect.Field
 
 
 /**
- * 默认情况下  PopupMenu 不会展示 icon，即便你在菜单里定义了 icon。
- * 需要反射调用开启
+ * 让 PopupMenu 支持展示 Icon。
+ *
+ * 默认情况下即便在菜单里定义了 icon ，PopupMenu 也不会展示它，需要反射调用开启。
  */
 @SuppressLint("RestrictedApi")
 fun PopupMenu.setForceShowIcon(forceShowIcon: Boolean = true) {

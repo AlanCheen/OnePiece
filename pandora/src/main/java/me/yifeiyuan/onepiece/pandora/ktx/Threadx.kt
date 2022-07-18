@@ -14,3 +14,9 @@ fun <T> T.startNewThread(action: T.() -> Unit) {
         action()
     }.start()
 }
+
+fun <T> T.mainThread(block: T.() -> Unit) {
+    mainThreadHandler.post {
+        block.invoke(this)
+    }
+}

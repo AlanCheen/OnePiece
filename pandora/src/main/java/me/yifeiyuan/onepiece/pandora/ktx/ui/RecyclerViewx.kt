@@ -6,9 +6,11 @@ import androidx.recyclerview.widget.RecyclerView
 import me.yifeiyuan.onepiece.pandora.ktx.ifIs
 
 /**
- * Created by 程序亦非猿 on 2021/9/13.
  *
  * 关于 RecyclerView 的扩展
+ *
+ *
+ * Created by 程序亦非猿 on 2021/9/13.
  */
 
 /**
@@ -43,7 +45,11 @@ fun <T : RecyclerView.Adapter<*>> T.attachTo(recyclerView: RecyclerView): T {
     return this
 }
 
-fun RecyclerView.doOnScrolled(func: (recyclerView: RecyclerView, dx: Int, dy: Int) -> Unit) {
+/**
+ * @param block
+ * @see doOnScrollStateChanged
+ */
+fun RecyclerView.doOnScrolled(block: (recyclerView: RecyclerView, dx: Int, dy: Int) -> Unit) {
     addOnScrollListener(object : RecyclerView.OnScrollListener() {
         override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
             super.onScrollStateChanged(recyclerView, newState)
@@ -51,16 +57,20 @@ fun RecyclerView.doOnScrolled(func: (recyclerView: RecyclerView, dx: Int, dy: In
 
         override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
             super.onScrolled(recyclerView, dx, dy)
-            func(recyclerView, dx, dy)
+            block(recyclerView, dx, dy)
         }
     })
 }
 
-fun RecyclerView.doOnScrollStateChanged(func: (recyclerView: RecyclerView, newState: Int) -> Unit) {
+/**
+ * @param block
+ * @see doOnScrolled
+ */
+fun RecyclerView.doOnScrollStateChanged(block: (recyclerView: RecyclerView, newState: Int) -> Unit) {
     addOnScrollListener(object : RecyclerView.OnScrollListener() {
         override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
             super.onScrollStateChanged(recyclerView, newState)
-            func(recyclerView, newState)
+            block(recyclerView, newState)
         }
 
         override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {

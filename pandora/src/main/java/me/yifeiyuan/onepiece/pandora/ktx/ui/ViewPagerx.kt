@@ -3,7 +3,10 @@ package me.yifeiyuan.onepiece.pandora.ktx.ui
 import androidx.viewpager.widget.ViewPager
 
 /**
+ * ViewPager
+ *
  * Created by 程序亦非猿 on 2021/9/13.
+ *
  */
 
 fun ViewPager.doOnPageScrolled(
@@ -45,6 +48,25 @@ fun ViewPager.doOnPageSelected(func: (position: Int) -> Unit) {
         }
 
         override fun onPageScrollStateChanged(state: Int) {
+        }
+    })
+}
+
+fun ViewPager.doOnPageScrollStateChanged(func: (state: Int) -> Unit) {
+
+    addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+        override fun onPageScrolled(
+            position: Int,
+            positionOffset: Float,
+            positionOffsetPixels: Int
+        ) {
+        }
+
+        override fun onPageSelected(position: Int) {
+        }
+
+        override fun onPageScrollStateChanged(state: Int) {
+            func(state)
         }
     })
 }

@@ -6,6 +6,8 @@ import androidx.annotation.StringRes
 import androidx.core.content.ContextCompat
 
 /**
+ * TextView 的扩展
+ *
  * Created by 程序亦非猿 on 2021/10/12.
  */
 

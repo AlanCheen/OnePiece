@@ -12,7 +12,9 @@ package me.yifeiyuan.onepiece.architecture.domain
  * 2.
  */
 
-interface OpUserCase{
+interface OpUserCase
+//    private val defaultScope:Cour
+{
 
 //    operator fun invoke()
 

@@ -2,15 +2,20 @@ package me.yifeiyuan.onepiece.dev
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import me.yifeiyuan.onepiece.architecture.core.LiveHandler
 import me.yifeiyuan.onepiece.pandora.ktx.*
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var liveHandler: LiveHandler
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        liveHandler = LiveHandler(this)
 
-        val s :String ="1"
+        val s: String = "1"
         s.ifIs<String> {
 
         }
@@ -52,7 +57,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun testFunction(func:Function0<String>){
+    private fun testFunction(func: Function0<String>) {
         func()
     }
 

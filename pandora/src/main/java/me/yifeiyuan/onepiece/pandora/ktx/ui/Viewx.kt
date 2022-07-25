@@ -20,7 +20,7 @@ val View.activity
 fun <T : Activity> View.asActivity() = context as T
 
 /**
- * view.isVisible = xxx
+ * view.isVisible = true / false
  *
  * @see visible
  * @see visibleIf
@@ -41,7 +41,8 @@ var View.isVisible: Boolean
 
 
 /**
- * 多个 View 的可见性
+ * 设置多个 View 的可见性
+ * 
  * @param visibility 可见性
  * @param views views
  * @see setViewsGone

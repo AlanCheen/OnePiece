@@ -3,6 +3,11 @@ plugins {
     id 'kotlin-android'
 }
 
+apply plugin: 'com.github.dcendents.android-maven'
+
+group = 'me.yifeiyuan'
+
+
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"

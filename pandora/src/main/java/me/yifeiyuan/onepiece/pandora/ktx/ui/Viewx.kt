@@ -9,7 +9,20 @@ import android.widget.Checkable
 
 /**
  *
- * View & ViewGroup
+ * View & ViewGroup 扩展
+ *
+ * 扩展属性：
+ * @see activity
+ * @see isVisible
+ *
+ * 扩展方法：
+ * @see visible
+ * @see visibleIf
+ * @see invisible
+ * @see invisibleIf
+ * @see gone
+ * @see goneIf
+ * @see enable
  *
  * Created by 程序亦非猿 on 2021/6/24.
  */
@@ -227,7 +240,6 @@ fun <T : View> T.doOnThrottledClick(time: Long = 500, onClick: (v: T) -> Unit): 
     })
     return this
 }
-
 
 fun ViewGroup.inflate(resId: Int): View {
     return LayoutInflater.from(context).inflate(resId, this, false)

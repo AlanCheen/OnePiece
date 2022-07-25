@@ -5,7 +5,7 @@ package me.yifeiyuan.onepiece.architecture.data
  *
  * 数据结果的基础类
  */
-data class OpResult<D, E>(val data: D, val error: E? = null) {
+data class Result<D, E>(val data: D, val error: E? = null) {
 
 
 }

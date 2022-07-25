@@ -1,10 +1,14 @@
 package me.yifeiyuan.onepiece.pandora.ktx
 
 /**
- * Boolean
+ * Boolean 的扩展
+ *
+ * @see ifTrue
+ * @see ifFalse
  *
  * Created by 程序亦非猿 on 2022/7/18.
  */
+
 
 /**
  * 如果为 true 则执行

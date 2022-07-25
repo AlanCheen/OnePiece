@@ -8,6 +8,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 
 /**
+ * Activity 的扩展
+ *
+ * @see clearFragments
+ *
  * Created by 程序亦非猿 on 2021/4/12.
  */
 
@@ -38,6 +42,9 @@ fun Activity?.hideSoftInput(flag: Int = InputMethodManager.HIDE_NOT_ALWAYS) {
     }
 }
 
+/**
+ * 移除所有的 Fragment
+ */
 fun FragmentActivity.clearFragments() {
     val listFragment: List<Fragment> = supportFragmentManager.fragments
     for (fragment in listFragment) {

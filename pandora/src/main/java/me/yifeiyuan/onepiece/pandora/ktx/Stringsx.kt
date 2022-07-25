@@ -8,9 +8,10 @@ import android.text.style.*
 import android.widget.TextView
 
 /**
- * Created by 程序亦非猿 on 2021/8/31.
  *
- * KTX for CharSequence、String、Spannable
+ * CharSequence、String、Spannable 等字符串相关的扩展
+ *
+ * Created by 程序亦非猿 on 2021/8/31.
  */
 
 fun CharSequence.toSpannableString(): SpannableString {
@@ -32,8 +33,6 @@ fun CharSequence.applyTo(textView: TextView) {
 //    }
 //    return this
 //}
-
-
 
 fun SpannableString.strikeThrough(
     start: Int,

@@ -3,6 +3,12 @@ package me.yifeiyuan.onepiece.pandora.ktx.ui
 import com.google.android.material.tabs.TabLayout
 
 /**
+ * TabLayout 的扩展
+ *
+ * @see doOnTabReselected
+ * @see doOnTabSelected
+ * @see doOnTabUnselected
+ *
  * Created by 程序亦非猿 on 2021/9/13.
  */
 

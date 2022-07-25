@@ -12,6 +12,10 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import java.lang.IllegalArgumentException
 
 /**
+ * 一个不会内存泄露的 BroadcastReceiver
+ *
+ * @see LiveHandler
+ *
  * Created by 程序亦非猿 on 2022/7/12.
  */
 class LiveBroadcastReceiver(

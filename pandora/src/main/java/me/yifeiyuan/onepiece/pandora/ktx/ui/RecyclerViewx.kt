@@ -9,13 +9,15 @@ import me.yifeiyuan.onepiece.pandora.ktx.ifIs
  *
  * 关于 RecyclerView 的扩展
  *
+ * @see scrollToTop
+ * @see scrollToPositionWithOffset
+ * @see doOnScrollStateChanged
+ * @see doOnScrolled
+ * @see attachTo
  *
  * Created by 程序亦非猿 on 2021/9/13.
  */
 
-/**
- * 滚动到顶部
- */
 fun RecyclerView.scrollToTop() {
     scrollToPositionWithOffset(0, 0)
 }

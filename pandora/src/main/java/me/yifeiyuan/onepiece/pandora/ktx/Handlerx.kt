@@ -4,7 +4,7 @@ import android.os.Handler
 import android.os.Looper
 
 /**
- * Handler
+ * Handler 扩展
  *
  * Created by 程序亦非猿 on 2021/10/12.
  */

@@ -1,7 +1,5 @@
 package me.yifeiyuan.onepiece.pandora.ktx
 
-import android.os.Looper
-
 /**
  * Created by 程序亦非猿 on 2021/9/13.
  */
@@ -16,22 +14,6 @@ fun <T> T.runWithTryCatch(block: T.() -> Unit): T {
         e.printStackTrace()
     }
     return this
-}
-
-/**
- *
- * 为什么不用 Looper.myLooper() == Looper.getMainLooper()？ 因为 myLooper() 可能会创建 ThreadLocalMap 导致浪费，而用 Thread 判断不需要
- *
- * @return 是否是主线程
- */
-fun isMainThread(): Boolean {
-    return Looper.getMainLooper().thread == Thread.currentThread()
-}
-
-fun <T> T.runOnMainThread(block: T.() -> Unit) {
-    mainThreadHandler.post {
-        block()
-    }
 }
 
 /**

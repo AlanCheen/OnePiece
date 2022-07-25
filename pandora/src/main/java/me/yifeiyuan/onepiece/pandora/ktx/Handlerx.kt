@@ -9,9 +9,9 @@ import android.os.Looper
  * Created by 程序亦非猿 on 2021/10/12.
  */
 
-val mainThreadHandler = Handler(Looper.getMainLooper())
+internal val mainThreadHandler = Handler(Looper.getMainLooper())
 
-fun runOnMainThread(runnable: Runnable) {
+fun postToMainThread(runnable: Runnable) {
     if (isMainThread()) {
         runnable.run()
     } else {
@@ -19,7 +19,7 @@ fun runOnMainThread(runnable: Runnable) {
     }
 }
 
-fun runOnMainThreadDelayed(delay: Long, runnable: Runnable) {
+fun postToMainThreadDelayed(delay: Long, runnable: Runnable) {
     mainThreadHandler.postDelayed(runnable, delay)
 }
 

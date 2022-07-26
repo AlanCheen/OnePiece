@@ -14,10 +14,12 @@ import java.lang.IllegalArgumentException
 /**
  * 一个不需要手动反注册的 BroadcastReceiver
  *
+ * @doc https://www.yuque.com/cxyfy/blog/xgddyq#cWXdI
+ *
  * @see LiveHandler 一个不会内存泄露的 Handler
  *
  * Created by 程序亦非猿 on 2022/7/12.
- * @since 1.0.2.1
+ * @since v1.0.2.1
  */
 class LiveBroadcastReceiver(
     private var context: Context,

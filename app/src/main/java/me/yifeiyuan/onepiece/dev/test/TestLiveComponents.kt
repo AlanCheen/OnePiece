@@ -3,6 +3,7 @@ package me.yifeiyuan.onepiece.dev.test
 import android.content.Intent
 import android.content.IntentFilter
 import android.os.Bundle
+import android.os.Message
 import android.util.Log
 import android.view.View
 import android.widget.Toast
@@ -30,11 +31,21 @@ class TestLiveComponents() : BaseActivity(R.layout.activity_test_live_components
             Log.d(TAG, "onCreate: 我不会内存泄露~")
         }, 30000)
 
-        val receiver = LiveBroadcastReceiver(context = this, lifecycleOwner = this, isLocalBroadcast = true) {
+        val handler = LiveHandler(lifecycleOwner = this) { message: Message ->
+            Log.d(TAG, "onCreate() called with: message = $message")
+        }
+
+        val message = Message().apply {
+            what = 666
+        }
+        handler.sendMessage(message)
+
+        val receiver =
+            LiveBroadcastReceiver(context = this, lifecycleOwner = this, isLocalBroadcast = true) {
                 Log.d(TAG, "onCreate() called $it")
 
                 showToast("收到广播")
-        }
+            }
 
         val intentFilter = IntentFilter().apply {
             addAction("b")

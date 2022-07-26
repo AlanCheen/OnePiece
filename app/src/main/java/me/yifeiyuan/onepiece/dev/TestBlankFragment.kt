@@ -1,14 +1,10 @@
 package me.yifeiyuan.onepiece.dev
 
-import android.content.Intent
-import android.content.IntentFilter
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import me.yifeiyuan.onepiece.architecture.core.LiveBroadcastReceiver
+import androidx.fragment.app.Fragment
 
 private const val TAG = "TestBlankFragment"
 
@@ -28,19 +24,6 @@ class TestBlankFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        val receiver = LiveBroadcastReceiver(requireActivity(), viewLifecycleOwner) {
-            Log.d(TAG, "onViewCreated: LiveBroadcastReceiver $it")
-        }
-
-        val intentFilter = IntentFilter()
-
-        receiver.register(intentFilter)
-
-        receiver.send(Intent().apply {
-
-        }
-        )
 
     }
 }

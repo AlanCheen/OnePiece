@@ -3,15 +3,13 @@ package me.yifeiyuan.onepiece.pandora.ktx
 import android.app.Activity
 import android.app.ActivityManager
 import android.app.ActivityManager.RunningAppProcessInfo
-import android.content.ClipData
-import android.content.ClipboardManager
-import android.content.Context
-import android.content.Intent
+import android.content.*
 import android.content.res.Configuration
 import android.net.ConnectivityManager
 import android.os.Process
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import java.io.BufferedReader
 import java.io.InputStreamReader
@@ -38,6 +36,17 @@ fun Context.getScreenHeight(): Int {
 fun Context.getScreenWidth(): Int {
     return resources.displayMetrics.widthPixels
 }
+
+fun Context.showToast(charSequence: CharSequence, isShort: Boolean = true) {
+    Toast.makeText(this, charSequence, if (isShort) Toast.LENGTH_SHORT else Toast.LENGTH_LONG)
+        .show()
+}
+
+fun Context.showToast(resId: Int, isShort: Boolean = true) {
+    Toast.makeText(this, resId, if (isShort) Toast.LENGTH_SHORT else Toast.LENGTH_LONG)
+        .show()
+}
+
 
 /**
  * @param fileName  例如 foo.json
@@ -105,6 +114,20 @@ fun Context.isNetworkAvailable(): Boolean {
 fun Context.isDarkMode(): Boolean {
     val uiMode = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
     return uiMode == Configuration.UI_MODE_NIGHT_YES
+}
+
+/**
+ * 注册本地广播
+ */
+fun Context.registerLocalBroadcast(
+    broadcastReceiver: BroadcastReceiver,
+    intentFilter: IntentFilter
+) {
+    LocalBroadcastManager.getInstance(this).registerReceiver(broadcastReceiver, intentFilter)
+}
+
+fun Context.unregisterLocalBroadcast(broadcastReceiver: BroadcastReceiver) {
+    LocalBroadcastManager.getInstance(this).unregisterReceiver(broadcastReceiver)
 }
 
 fun Context.sendLocalBroadcast(intent: Intent) {

@@ -20,6 +20,10 @@ abstract class BaseFragment : Fragment {
 
     lateinit var hostActivity: Activity
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+    }
+
     override fun onAttach(activity: Activity) {
         super.onAttach(activity)
         hostActivity = activity
@@ -34,15 +38,16 @@ abstract class BaseFragment : Fragment {
         return view ?: inflater.inflate(getLayoutId(), container, false)
     }
 
+    @LayoutRes
+    fun getLayoutId(): Int = 0
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         onInit(view, savedInstanceState)
     }
 
-    @LayoutRes
-    fun getLayoutId(): Int = 0
-
     abstract fun onInit(view: View, savedInstanceState: Bundle?)
+
 
     override fun onResume() {
         super.onResume()
@@ -50,6 +55,18 @@ abstract class BaseFragment : Fragment {
 
     override fun onPause() {
         super.onPause()
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

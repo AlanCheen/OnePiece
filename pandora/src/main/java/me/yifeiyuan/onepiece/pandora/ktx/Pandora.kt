@@ -7,11 +7,18 @@ package me.yifeiyuan.onepiece.pandora.ktx
 /**
  * 在 try 块中执行，会 catch 异常并打印
  */
-fun <T> T.runWithTryCatch(block: T.() -> Unit): T {
+fun <T> T.tryCatch(
+    errorBlock: (T.(e: Exception) -> Unit)? = null,
+    finallyBlock: (T.() -> Unit)? = null,
+    block: T.() -> Unit
+): T {
     try {
         block()
     } catch (e: Exception) {
+        errorBlock?.invoke(this, e)
         e.printStackTrace()
+    } finally {
+        finallyBlock?.invoke(this)
     }
     return this
 }

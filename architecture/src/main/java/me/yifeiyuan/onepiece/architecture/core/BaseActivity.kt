@@ -1,6 +1,7 @@
 package me.yifeiyuan.onepiece.architecture.core
 
 import android.content.Intent
+import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 
@@ -12,6 +13,10 @@ open class BaseActivity : AppCompatActivity {
     constructor() : super() {}
 
     constructor(contentLayoutId: Int) : super(contentLayoutId) {}
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+    }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {

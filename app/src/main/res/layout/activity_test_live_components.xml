@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".test.TestLiveComponents"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="发送广播"
+        android:onClick="testSendLocalBroadcast"
+        />
+</LinearLayout>

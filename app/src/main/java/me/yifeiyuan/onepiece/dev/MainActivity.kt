@@ -2,18 +2,15 @@ package me.yifeiyuan.onepiece.dev
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import me.yifeiyuan.onepiece.architecture.core.LiveHandler
+import android.view.View
+import me.yifeiyuan.onepiece.dev.test.TestLiveComponents
 import me.yifeiyuan.onepiece.pandora.ktx.*
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var liveHandler: LiveHandler
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        liveHandler = LiveHandler(this)
 
         val s: String = "1"
         s.ifIs<String> {
@@ -29,8 +26,17 @@ class MainActivity : AppCompatActivity() {
         s.ifEmpty {
 
         }
-        runWithTryCatch {
+        tryCatch {
 
+        }
+
+        tryCatch(
+            { e ->
+                e.printStackTrace()
+            },
+            {
+
+            }) {
         }
     }
 
@@ -61,14 +67,9 @@ class MainActivity : AppCompatActivity() {
         func()
     }
 
+    fun testLiveComponents(view: View) {
+        start<TestLiveComponents> {
 
-    private fun testC() {
-
-//        "b".ifEmpty {
-//            "aa".toString()
-//        }
-//        "a".ifEmpty {
-//            "2"
-//        }
+        }
     }
 }

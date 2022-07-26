@@ -17,8 +17,9 @@ import androidx.lifecycle.OnLifecycleEvent
  * @see LiveBroadcastReceiver
  *
  * Created by 程序亦非猿 on 2021/3/24.
+ * @since 1.0.2.1
  */
-open class LiveHandler @JvmOverloads constructor(
+class LiveHandler @JvmOverloads constructor(
     lifecycleOwner: LifecycleOwner,
     looper: Looper = Looper.getMainLooper(),
     callback: Callback? = null

@@ -43,3 +43,15 @@ UI widgets 。
 自定义控件、动画等。
 
 Design
+
+
+## 规范记录
+
+命名规范：
+
+- 动词 + 名词
+- isXXX 
+
+runOnMainThread 优于 mainThread，虽然 mainThread 写起来更方便，但是不是很明确
+
+

@@ -12,11 +12,12 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import java.lang.IllegalArgumentException
 
 /**
- * 一个不会内存泄露的 BroadcastReceiver
+ * 一个不需要手动反注册的 BroadcastReceiver
  *
- * @see LiveHandler
+ * @see LiveHandler 一个不会内存泄露的 Handler
  *
  * Created by 程序亦非猿 on 2022/7/12.
+ * @since 1.0.2.1
  */
 class LiveBroadcastReceiver(
     private var context: Context,
@@ -29,47 +30,17 @@ class LiveBroadcastReceiver(
         lifecycleOwner.lifecycle.addObserver(this)
     }
 
-    fun register(
-        intentFilter: IntentFilter
-    ) {
-        if (isLocalBroadcast) {
-            LocalBroadcastManager.getInstance(context).registerReceiver(this, intentFilter)
-        } else {
-            context.registerReceiver(this, intentFilter)
-        }
-    }
-
-    /**
-     * TODO 需要？
-     */
-    fun send(intent: Intent) {
-        if (isLocalBroadcast) {
-            LocalBroadcastManager.getInstance(context).sendBroadcast(intent)
-        } else {
-            context.sendBroadcast(intent)
-        }
-    }
-
-    /**
-     * TODO 需要？
-     */
-    fun sendSync(intent: Intent) {
-        if (isLocalBroadcast) {
-            LocalBroadcastManager.getInstance(context).sendBroadcastSync(intent)
-        } else {
-            throw IllegalArgumentException()
-        }
-    }
-
     override fun onReceive(context: Context?, intent: Intent) {
         onReceive.invoke(intent)
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-    fun onDestroy(lifecycleOwner: LifecycleOwner) {
+    private fun onDestroy(lifecycleOwner: LifecycleOwner) {
         lifecycleOwner.lifecycle.removeObserver(this)
         if (isLocalBroadcast) {
             LocalBroadcastManager.getInstance(context).unregisterReceiver(this)
+        }else{
+            context.unregisterReceiver(this)
         }
     }
 }

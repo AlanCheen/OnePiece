@@ -20,8 +20,8 @@ import java.io.InputStreamReader
  * Created by 程序亦非猿 on 2021/4/7.
  */
 
-inline fun <reified A : Activity> Context.start(intentConfig: Intent.() -> Unit = {}) {
-    startActivity(Intent(this, A::class.java).apply(intentConfig))
+inline fun <reified A : Activity> Context.start(intentBuilder: Intent.() -> Unit = {}) {
+    startActivity(Intent(this, A::class.java).apply(intentBuilder))
 }
 
 fun Context.toPixel(dip: Int): Int {
@@ -37,16 +37,51 @@ fun Context.getScreenWidth(): Int {
     return resources.displayMetrics.widthPixels
 }
 
-fun Context.showToast(charSequence: CharSequence, isShort: Boolean = true) {
-    Toast.makeText(this, charSequence, if (isShort) Toast.LENGTH_SHORT else Toast.LENGTH_LONG)
-        .show()
+fun Context?.showToast(text: CharSequence, isShort: Boolean = true) {
+    val duration = if (isShort) Toast.LENGTH_SHORT else Toast.LENGTH_LONG
+    if (this is Activity) {
+        if (isActive()) {
+            if (isMainThread()) {
+                Toast.makeText(this, text, duration).show()
+            } else {
+                runOnMainThread {
+                    Toast.makeText(this, text, duration).show()
+                }
+            }
+        }
+    } else {
+        if (isMainThread()) {
+            Toast.makeText(this, text, duration).show()
+        } else {
+            runOnMainThread {
+                Toast.makeText(this, text, duration).show()
+            }
+        }
+    }
 }
 
-fun Context.showToast(resId: Int, isShort: Boolean = true) {
-    Toast.makeText(this, resId, if (isShort) Toast.LENGTH_SHORT else Toast.LENGTH_LONG)
-        .show()
+fun Context?.showToast(resId: Int, isShort: Boolean = true) {
+    val duration = if (isShort) Toast.LENGTH_SHORT else Toast.LENGTH_LONG
+    if (this is Activity) {
+        if (isActive()) {
+            if (isMainThread()) {
+                Toast.makeText(this, resId, duration).show()
+            } else {
+                runOnMainThread {
+                    Toast.makeText(this, resId, duration).show()
+                }
+            }
+        }
+    } else {
+        if (isMainThread()) {
+            Toast.makeText(this, resId, duration).show()
+        } else {
+            runOnMainThread {
+                Toast.makeText(this, resId, duration).show()
+            }
+        }
+    }
 }
-
 
 /**
  * @param fileName  例如 foo.json

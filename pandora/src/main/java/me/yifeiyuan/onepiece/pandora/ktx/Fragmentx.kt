@@ -15,22 +15,19 @@ import androidx.fragment.app.Fragment
  * @return 是否是激活的状态
  */
 fun Fragment.isActive(): Boolean {
-    if (activity == null) {
-        return false
-    }
-    return !activity!!.isFinishing && !activity!!.isDestroyed && isAdded
+    return isAdded && activity.isActive()
 }
 
-fun Fragment?.showToast(text: CharSequence?, duration: Int = Toast.LENGTH_SHORT) {
-    if (this == null || text == null || this.activity == null) {
-        return
+fun Fragment.isInactive(): Boolean = !isActive()
+
+fun Fragment.showToast(text: CharSequence, isShort: Boolean = true) {
+    if (text.isNotEmpty() && isActive()) {
+        activity.showToast(text, isShort)
     }
-    Toast.makeText(activity, text, duration).show()
 }
 
-fun Fragment?.showToast(@StringRes resId: Int, duration: Int = Toast.LENGTH_SHORT) {
-    if (this == null || this.activity == null) {
-        return
+fun Fragment.showToast(@StringRes resId: Int, isShort: Boolean = true) {
+    if (isActive()) {
+        activity.showToast(resId, isShort)
     }
-    Toast.makeText(activity, resId, duration).show()
 }

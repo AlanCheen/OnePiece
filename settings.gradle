@@ -1,3 +1,4 @@
+include ':func'
 include ':fantasy'
 include ':pandora'
 include ':architecture'

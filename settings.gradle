@@ -1,3 +1,5 @@
+include ':mvvm'
+include ':mvi'
 include ':foundation'
 include ':func'
 include ':fantasy'

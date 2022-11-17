@@ -22,6 +22,7 @@ typealias NumberBlock = () -> Number
 
 typealias DoubleBlock = () -> Double
 
-typealias ValueBlock<T> = () -> T
-
-typealias NullableValueBlock<T> = () -> T?
+typealias ValueBlock<R> = () -> R
+typealias ValueBlock1<P, R> = (P) -> R
+typealias ValueBlock2<P1, P2, R> = (P1, P2) -> R
+typealias ValueBlock3<P1, P2, P3, R> = (P1, P2, P3) -> R

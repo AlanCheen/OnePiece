@@ -48,7 +48,6 @@ abstract class BaseFragment : Fragment {
 
     abstract fun onInit(view: View, savedInstanceState: Bundle?)
 
-
     override fun onResume() {
         super.onResume()
     }

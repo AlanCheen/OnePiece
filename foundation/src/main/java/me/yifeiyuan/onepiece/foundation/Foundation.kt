@@ -11,4 +11,4 @@ import android.app.Application
 /**
  * 获取当前 Application Context
  */
-fun getApplication(): Application = ActivityThread.currentApplication()
+fun getCurrentApplication(): Application = ActivityThread.currentApplication()

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import me.yifeiyuan.onepiece.dev.test.TestLiveComponents
+import me.yifeiyuan.onepiece.fantasy.OPURLSpan
 import me.yifeiyuan.onepiece.func.IntBlock
 import me.yifeiyuan.onepiece.func.ValueBlock
 import me.yifeiyuan.onepiece.pandora.ktx.*
@@ -66,6 +67,7 @@ class MainActivity : AppCompatActivity() {
         testValueBlock("test") {
             "android"
         }
+
     }
 
 

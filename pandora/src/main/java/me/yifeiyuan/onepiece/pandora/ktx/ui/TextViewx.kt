@@ -1,5 +1,6 @@
 package me.yifeiyuan.onepiece.pandora.ktx.ui
 
+import android.graphics.Paint
 import android.widget.TextView
 import androidx.annotation.ColorRes
 import androidx.annotation.StringRes
@@ -34,18 +35,16 @@ fun TextView.getTextOrEmpty(): CharSequence {
  * 设置颜色值资源
  * @param resId
  */
-fun <T : TextView> T.setTextColorRes(@ColorRes resId: Int): T {
+fun <T : TextView> T.setTextColorRes(@ColorRes resId: Int): T = apply {
     setTextColor(ContextCompat.getColor(context, resId))
-    return this
 }
 
 /**
  * 设置文本资源
  * @param resId
  */
-fun <T : TextView> T.setTextRes(@StringRes resId: Int): T {
+fun <T : TextView> T.setTextRes(@StringRes resId: Int): T = apply {
     text = context.resources.getString(resId)
-    return this
 }
 
 /**
@@ -54,7 +53,28 @@ fun <T : TextView> T.setTextRes(@StringRes resId: Int): T {
  * @param trueColor
  * @param falseColor
  */
-fun <T : TextView> T.setTextColorByCondition(condition: Boolean, trueColor: Int, falseColor: Int) {
+fun <T : TextView> T.setTextColorByCondition(
+    condition: Boolean,
+    trueColor: Int,
+    falseColor: Int
+): T = apply {
     val colorRes = if (condition) trueColor else falseColor
     setTextColor(ContextCompat.getColor(context, colorRes))
 }
+
+fun <T : TextView> T.strike(): T = apply {
+    paintFlags = paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+}
+
+fun <T : TextView> T.underLine(): T = apply {
+    paintFlags = paintFlags or Paint.UNDERLINE_TEXT_FLAG
+}
+
+fun <T : TextView> T.antiAlias(): T = apply {
+    paintFlags = paintFlags or Paint.ANTI_ALIAS_FLAG
+}
+
+fun <T : TextView> T.bold(): T = apply {
+    paintFlags = paintFlags or Paint.FAKE_BOLD_TEXT_FLAG
+}
+

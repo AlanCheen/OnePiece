@@ -1,11 +1,13 @@
 package me.yifeiyuan.onepiece.pandora.ktx
 
+import android.graphics.Color
 import android.graphics.Typeface
 import android.text.SpannableString
 import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.text.style.*
 import android.widget.TextView
+import androidx.annotation.ColorInt
 
 /**
  *
@@ -13,6 +15,14 @@ import android.widget.TextView
  *
  * Created by 程序亦非猿 on 2021/8/31.
  */
+
+/**
+ *
+ * "#00ff00".toColor()
+ */
+fun String.toColor(): Int {
+    return Color.parseColor(this)
+}
 
 fun CharSequence.toSpannableString(): SpannableString {
     return SpannableString(this)

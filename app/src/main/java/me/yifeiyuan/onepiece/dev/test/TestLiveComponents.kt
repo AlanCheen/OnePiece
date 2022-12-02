@@ -6,12 +6,9 @@ import android.os.Bundle
 import android.os.Message
 import android.util.Log
 import android.view.View
-import android.widget.Toast
-import androidx.fragment.app.Fragment
-import me.yifeiyuan.onepiece.architecture.core.BaseActivity
-import me.yifeiyuan.onepiece.architecture.core.BaseFragment
-import me.yifeiyuan.onepiece.architecture.core.LiveBroadcastReceiver
-import me.yifeiyuan.onepiece.architecture.core.LiveHandler
+import me.yifeiyuan.onepiece.arch.core.BaseActivity
+import me.yifeiyuan.onepiece.arch.core.LiveBroadcastReceiver
+import me.yifeiyuan.onepiece.arch.core.LiveHandler
 import me.yifeiyuan.onepiece.dev.R
 import me.yifeiyuan.onepiece.pandora.ktx.registerLocalBroadcast
 import me.yifeiyuan.onepiece.pandora.ktx.sendLocalBroadcast

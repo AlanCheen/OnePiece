@@ -1,9 +1,10 @@
-include ':mvvm'
-include ':mvi'
+include ':arch-clean'
+include ':arch-mvvm'
+include ':arch-mvi'
 include ':foundation'
 include ':func'
 include ':fantasy'
 include ':pandora'
-include ':architecture'
+include ':archi-core'
 include ':app'
 rootProject.name = "OnePiece"

@@ -46,7 +46,7 @@ dependencies {
 
     implementation project(path: ':pandora')
     implementation project(path: ':fantasy')
-    implementation project(path: ':architecture')
+    implementation project(path: ':archi-core')
     implementation project(path: ':func')
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 //    implementation 'androidx.legacy:legacy-support-v4:1.0.0'

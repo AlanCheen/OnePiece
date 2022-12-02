@@ -17,7 +17,7 @@ import androidx.lifecycle.LifecycleRegistry
  *
  * 所以自定义一个 lazyLifecycle 重新定义 ON_RESUME 和 ON_PAUSE 等事件的触发实际，更符合 Fragment 在 ViewPager 中的表现
  */
-abstract class LazyLoadFragment : BaseFragment() {
+abstract class LazyLoadFragment : CoreFragment() {
 
     companion object {
         private const val TAG = "LazyLoadFragment"
@@ -122,5 +122,4 @@ abstract class LazyLoadFragment : BaseFragment() {
 
     //请求数据
     abstract fun onLazyLoad()
-
 }

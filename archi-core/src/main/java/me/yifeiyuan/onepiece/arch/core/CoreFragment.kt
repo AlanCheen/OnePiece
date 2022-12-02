@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment
 /**
  * Created by 程序亦非猿 on 2021/3/24.
  */
-abstract class BaseFragment : Fragment {
+abstract class CoreFragment : Fragment {
 
     constructor() : super() {}
 

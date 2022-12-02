@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 /**
  * Created by 程序亦非猿 on 2021/3/24.
  */
-open class BaseActivity : AppCompatActivity {
+open class CoreActivity : AppCompatActivity {
 
     constructor() : super() {}
 

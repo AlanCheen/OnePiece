@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.os.Message
 import android.util.Log
 import android.view.View
-import me.yifeiyuan.onepiece.arch.core.BaseActivity
+import me.yifeiyuan.onepiece.arch.core.CoreActivity
 import me.yifeiyuan.onepiece.arch.core.LifecycleAwareBroadcastReceiver
 import me.yifeiyuan.onepiece.arch.core.LifecycleAwareHandler
 import me.yifeiyuan.onepiece.dev.R
@@ -19,7 +19,7 @@ private const val TAG = "TestLiveComponents"
 /**
  * Created by 程序亦非猿 on 2022/7/25.
  */
-class TestLiveComponents() : BaseActivity(R.layout.activity_test_live_components) {
+class TestLiveComponents() : CoreActivity(R.layout.activity_test_live_components) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

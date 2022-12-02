@@ -14,12 +14,12 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager
  *
  * @doc https://www.yuque.com/cxyfy/blog/xgddyq#cWXdI
  *
- * @see LiveHandler 一个不会内存泄露的 Handler
+ * @see LifecycleAwareHandler 一个不会内存泄露的 Handler
  *
  * Created by 程序亦非猿 on 2022/7/12.
  * @since v1.0.2.1
  */
-class LiveBroadcastReceiver(
+class LifecycleAwareBroadcastReceiver(
     private var context: Context,
     lifecycleOwner: LifecycleOwner,
     private var isLocalBroadcast: Boolean = true,

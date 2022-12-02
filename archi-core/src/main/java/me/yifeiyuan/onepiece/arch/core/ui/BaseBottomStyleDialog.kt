@@ -1,4 +1,4 @@
-package me.yifeiyuan.onepiece.arch.ui
+package me.yifeiyuan.onepiece.arch.core.ui
 
 import android.os.Bundle
 import android.view.Gravity

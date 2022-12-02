@@ -1,4 +1,4 @@
-package me.yifeiyuan.onepiece.arch.ui
+package me.yifeiyuan.onepiece.arch.core.ui
 
 import android.app.Activity
 import android.content.Context

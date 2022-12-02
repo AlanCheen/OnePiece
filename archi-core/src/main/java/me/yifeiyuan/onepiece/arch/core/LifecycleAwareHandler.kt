@@ -16,12 +16,12 @@ import androidx.lifecycle.OnLifecycleEvent
  * @doc https://www.yuque.com/cxyfy/blog/xgddyq#LAqhG
  *
  * @param lifecycleOwner 绑定生命周期，ON_DESTROY 的时候自动解绑
- * @see LiveBroadcastReceiver
+ * @see LifecycleAwareBroadcastReceiver
  *
  * Created by 程序亦非猿 on 2021/3/24.
  * @since v1.0.2.1
  */
-class LiveHandler @JvmOverloads constructor(
+class LifecycleAwareHandler @JvmOverloads constructor(
     lifecycleOwner: LifecycleOwner,
     looper: Looper = Looper.getMainLooper(),
     callback: Callback? = null,

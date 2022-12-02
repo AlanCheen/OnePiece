@@ -7,8 +7,8 @@ import android.os.Message
 import android.util.Log
 import android.view.View
 import me.yifeiyuan.onepiece.arch.core.BaseActivity
-import me.yifeiyuan.onepiece.arch.core.LiveBroadcastReceiver
-import me.yifeiyuan.onepiece.arch.core.LiveHandler
+import me.yifeiyuan.onepiece.arch.core.LifecycleAwareBroadcastReceiver
+import me.yifeiyuan.onepiece.arch.core.LifecycleAwareHandler
 import me.yifeiyuan.onepiece.dev.R
 import me.yifeiyuan.onepiece.pandora.ktx.registerLocalBroadcast
 import me.yifeiyuan.onepiece.pandora.ktx.sendLocalBroadcast
@@ -24,11 +24,11 @@ class TestLiveComponents() : BaseActivity(R.layout.activity_test_live_components
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        LiveHandler(lifecycleOwner = this).postDelayed({
+        LifecycleAwareHandler(lifecycleOwner = this).postDelayed({
             Log.d(TAG, "onCreate: 我不会内存泄露~")
         }, 30000)
 
-        val handler = LiveHandler(lifecycleOwner = this) { message: Message ->
+        val handler = LifecycleAwareHandler(lifecycleOwner = this) { message: Message ->
             Log.d(TAG, "onCreate() called with: message = $message")
         }
 
@@ -38,7 +38,7 @@ class TestLiveComponents() : BaseActivity(R.layout.activity_test_live_components
         handler.sendMessage(message)
 
         val receiver =
-            LiveBroadcastReceiver(context = this, lifecycleOwner = this, isLocalBroadcast = true) {
+            LifecycleAwareBroadcastReceiver(context = this, lifecycleOwner = this, isLocalBroadcast = true) {
                 Log.d(TAG, "onCreate() called $it")
 
                 showToast("收到广播")

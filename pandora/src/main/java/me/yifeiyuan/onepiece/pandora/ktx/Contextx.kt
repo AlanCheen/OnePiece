@@ -3,6 +3,7 @@ package me.yifeiyuan.onepiece.pandora.ktx
 import android.app.Activity
 import android.app.ActivityManager
 import android.app.ActivityManager.RunningAppProcessInfo
+import android.app.Service
 import android.content.*
 import android.content.res.Configuration
 import android.net.ConnectivityManager
@@ -20,8 +21,16 @@ import java.io.InputStreamReader
  * Created by 程序亦非猿 on 2021/4/7.
  */
 
-inline fun <reified A : Activity> Context.start(intentBuilder: Intent.() -> Unit = {}) {
-    startActivity(Intent(this, A::class.java).apply(intentBuilder))
+inline fun <reified A : Activity> Context.startActivity(intentBuilder: Intent.() -> Unit = {}) {
+    val intent = Intent(this, A::class.java).apply(intentBuilder)
+    if (this !is Activity) {
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+    }
+    startActivity(intent)
+}
+
+inline fun <reified S : Service> Context.startService(intentBuilder: Intent.() -> Unit = {}) {
+    startService(Intent(this, S::class.java).apply(intentBuilder))
 }
 
 fun Context.toPixel(dip: Int): Int {

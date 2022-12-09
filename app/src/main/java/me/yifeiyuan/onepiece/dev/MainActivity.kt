@@ -4,9 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import me.yifeiyuan.onepiece.dev.test.TestLiveComponents
-import me.yifeiyuan.onepiece.fantasy.OPURLSpan
-import me.yifeiyuan.onepiece.func.IntBlock
-import me.yifeiyuan.onepiece.func.ValueBlock
+import me.yifeiyuan.onepiece.func.IntFunc
+import me.yifeiyuan.onepiece.func.ValueFunc
 import me.yifeiyuan.onepiece.pandora.ktx.*
 
 class MainActivity : AppCompatActivity() {
@@ -44,7 +43,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun testContext() {
-        start<MainActivity>()
+        startActivity<MainActivity>()
     }
 
     override fun onResume() {
@@ -76,16 +75,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun testLiveComponents(view: View) {
-        start<TestLiveComponents> {
+        startActivity<TestLiveComponents>() {
 
         }
     }
 
-    private fun testIntFunc(intFunc: IntBlock) {
+    private fun testIntFunc(intFunc: IntFunc) {
         intFunc()
     }
 
-    private fun testValueBlock(p:String ,valueBlock: ValueBlock<String?>){
+    private fun testValueBlock(p:String ,valueBlock: ValueFunc<String?>){
         val result = valueBlock()
 
     }

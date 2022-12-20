@@ -241,7 +241,3 @@ fun <T : View> T.doOnThrottledClick(time: Long = 500, onClick: (v: T) -> Unit): 
     return this
 }
 
-fun ViewGroup.inflate(resId: Int): View {
-    return LayoutInflater.from(context).inflate(resId, this, false)
-}
-

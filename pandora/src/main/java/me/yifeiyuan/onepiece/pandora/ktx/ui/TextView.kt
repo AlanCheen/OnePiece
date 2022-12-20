@@ -7,6 +7,9 @@ import androidx.annotation.StringRes
 import androidx.core.content.ContextCompat
 
 /**
+ *
+ * Extensions for TextView.
+ *
  * TextView 的扩展
  *
  * @see isTextNullOrEmpty

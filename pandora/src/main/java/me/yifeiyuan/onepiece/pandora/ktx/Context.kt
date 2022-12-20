@@ -8,7 +8,9 @@ import android.content.*
 import android.content.res.Configuration
 import android.net.ConnectivityManager
 import android.os.Process
+import android.view.ContextThemeWrapper
 import android.view.View
+import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
@@ -183,8 +185,11 @@ fun Context.sendLocalBroadcastSync(intent: Intent) {
 }
 
 /**
+ * Get the name of the current running process.
+ *
  * 获取当前进程名
- * @return 进程名
+ *
+ * @return the name of the current running process or empty.
  */
 fun Context.getProgressName(): String {
 
@@ -202,3 +207,15 @@ fun Context.getProgressName(): String {
     }
     return ""
 }
+
+fun Context.asActivity() = (this as? ContextThemeWrapper)?.baseContext as? Activity
+    ?: this as? Activity
+
+/**
+ * Try to get the root view if Context is an Activity.
+ *
+ * @see getRootView
+ * @return the root view of Activity or null if the Context is not an Activity
+ */
+fun Context.getRootView(): View? =
+    asActivity()?.window?.decorView?.findViewById<View>(android.R.id.content) as? ViewGroup

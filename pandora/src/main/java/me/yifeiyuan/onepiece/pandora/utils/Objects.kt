@@ -4,7 +4,6 @@ package me.yifeiyuan.onepiece.pandora.utils
  * Created by 程序亦非猿 on 2022/12/5.
  */
 
-
 fun allNotNull(vararg objects: Any?, func: () -> Unit) {
     var allNotNull = true
     for (o in objects) {

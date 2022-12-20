@@ -3,11 +3,8 @@ package me.yifeiyuan.onepiece.pandora.ktx
 import android.app.Activity
 import android.content.Context
 import android.view.View
+import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
-import android.widget.Toast
-import androidx.annotation.StringRes
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
 
 /**
  * Activity 的扩展
@@ -68,12 +65,8 @@ fun Activity.hideSoftInput(flag: Int = InputMethodManager.HIDE_NOT_ALWAYS) {
 }
 
 /**
- * 移除所有的 Fragment
+ * This function is used to get the root view from the Activity Context.
+ * Get the DecorView from the Window object of the activity and finds the View object
+ * with the android.R.id.content ID.
  */
-fun FragmentActivity.clearFragments() {
-    val listFragment: List<Fragment> = supportFragmentManager.fragments
-    for (fragment in listFragment) {
-        supportFragmentManager.beginTransaction().remove(fragment)
-            .commitAllowingStateLoss()
-    }
-}
+fun Activity.getRootView(): ViewGroup = window.decorView.findViewById(android.R.id.content)

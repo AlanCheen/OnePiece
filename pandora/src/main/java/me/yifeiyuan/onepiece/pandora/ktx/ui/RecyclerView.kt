@@ -7,6 +7,8 @@ import me.yifeiyuan.onepiece.pandora.ktx.ifIs
 
 /**
  *
+ * Extensions for RecyclerView.
+ *
  * 关于 RecyclerView 的扩展
  *
  * @see scrollToTop

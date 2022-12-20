@@ -5,7 +5,8 @@ import android.text.TextWatcher
 import android.widget.EditText
 
 /**
- * EditText 的扩展
+ *
+ * Extensions for EditText.
  *
  * @see doOnTextChanged
  * @see doAfterTextChanged

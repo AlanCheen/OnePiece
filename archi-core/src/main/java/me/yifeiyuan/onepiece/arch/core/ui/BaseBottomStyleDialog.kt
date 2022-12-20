@@ -3,7 +3,7 @@ package me.yifeiyuan.onepiece.arch.core.ui
 import android.os.Bundle
 import android.view.Gravity
 import android.view.WindowManager
-import me.yifeiyuan.onepiece.arch.R
+import me.yifeiyuan.onepiece.arch.core.R
 
 /**
  * Created by 程序亦非猿 on 2021/9/27.

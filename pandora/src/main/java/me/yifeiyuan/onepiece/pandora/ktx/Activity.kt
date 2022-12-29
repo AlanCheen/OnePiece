@@ -25,18 +25,6 @@ fun Activity?.isInactive(): Boolean {
     return this == null || isDestroyed || isFinishing
 }
 
-//fun Activity.showToast(text: CharSequence?, duration: Int = Toast.LENGTH_SHORT) {
-//    if (isActive()) {
-//        Toast.makeText(this, text, duration).show()
-//    }
-//}
-//
-//fun Activity.showToast(@StringRes resId: Int, duration: Int = Toast.LENGTH_SHORT) {
-//    if (isActive()) {
-//        Toast.makeText(this, resId, duration).show()
-//    }
-//}
-
 //InputMethodManager.HIDE_NOT_ALWAYS
 fun Activity.hideSoftInput(focusView: View, flag: Int = 0) {
     if (isInactive()) {

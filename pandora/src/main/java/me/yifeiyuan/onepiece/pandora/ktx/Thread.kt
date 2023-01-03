@@ -1,6 +1,8 @@
 package me.yifeiyuan.onepiece.pandora.ktx
 
 import android.os.Looper
+import java.util.concurrent.Executor
+import java.util.concurrent.Executors
 
 /**
  * Created by 程序亦非猿 on 2022/7/15.
@@ -40,4 +42,8 @@ fun <T> T.runOnMainThread(block: T.() -> Unit) {
  */
 fun isMainThread(): Boolean {
     return Looper.getMainLooper().thread == Thread.currentThread()
+}
+
+fun createSingleThreadExecutor(): Executor {
+    return Executors.newSingleThreadExecutor()
 }

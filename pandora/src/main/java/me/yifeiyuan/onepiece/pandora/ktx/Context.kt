@@ -3,11 +3,13 @@ package me.yifeiyuan.onepiece.pandora.ktx
 import android.app.Activity
 import android.app.ActivityManager
 import android.app.ActivityManager.RunningAppProcessInfo
+import android.app.Application.getProcessName
 import android.app.Service
 import android.content.*
 import android.content.res.Configuration
 import android.net.ConnectivityManager
 import android.os.Process
+import android.text.TextUtils
 import android.view.ContextThemeWrapper
 import android.view.View
 import android.view.ViewGroup
@@ -15,6 +17,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import java.io.BufferedReader
+import java.io.FileReader
 import java.io.InputStreamReader
 
 /**
@@ -184,6 +187,8 @@ fun Context.sendLocalBroadcastSync(intent: Intent) {
     LocalBroadcastManager.getInstance(this).sendBroadcastSync(intent)
 }
 
+var sProcessName: String? = null
+
 /**
  * Get the name of the current running process.
  *
@@ -191,21 +196,54 @@ fun Context.sendLocalBroadcastSync(intent: Intent) {
  *
  * @return the name of the current running process or empty.
  */
-fun Context.getProgressName(): String {
+fun Context.getCurrentProcessName(): String {
+
+    if (sProcessName != null) {
+        return sProcessName!!
+    }
 
     val pid = Process.myPid()
-
-    val mActivityManager: ActivityManager =
-        getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
-
-    val list: List<RunningAppProcessInfo> = mActivityManager.runningAppProcesses
-
-    for (appProcess in list) {
-        if (appProcess.pid == pid) {
-            return appProcess.processName
+    var cmdlineReader: BufferedReader? = null
+    try {
+        cmdlineReader = BufferedReader(FileReader("/proc/$pid/cmdline"))
+        var c: Int
+        val processName = StringBuilder()
+        while (cmdlineReader.read().also { c = it } > 0) {
+            processName.append(c.toChar())
+        }
+        sProcessName = processName.toString()
+        return sProcessName ?: ""
+    } catch (e: java.lang.Exception) {
+        e.printStackTrace()
+    } finally {
+        try {
+            cmdlineReader?.close()
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
     }
-    return ""
+    val am = getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
+    for (appProcess in am.runningAppProcesses) {
+        if (appProcess.pid == pid) {
+            sProcessName = appProcess.processName
+        }
+    }
+    return sProcessName ?: ""
+}
+
+/**
+ * 判断进程是否是主进程
+ */
+fun Context.isMainProcess(): Boolean {
+    try {
+        val packageName: String = packageName
+        val processName: String = this.getCurrentProcessName()
+        return !(!TextUtils.isEmpty(packageName) && !TextUtils.isEmpty(processName)
+                && !TextUtils.equals(packageName, processName))
+    } catch (e: Exception) {
+        e.printStackTrace()
+    }
+    return true // 默认当主进程处理
 }
 
 fun Context.asActivity() = (this as? ContextThemeWrapper)?.baseContext as? Activity

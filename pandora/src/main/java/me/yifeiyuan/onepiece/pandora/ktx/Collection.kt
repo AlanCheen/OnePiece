@@ -20,3 +20,6 @@ fun mapOfString(init: (MutableMap<String, String>) -> Unit): MutableMap<String, 
         init.invoke(this)
     }
 }
+
+val <T> List<T>.lastIndex: Int
+    get() = size - 1

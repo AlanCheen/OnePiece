@@ -40,18 +40,18 @@ dependencies {
     implementation 'com.google.android.material:material:1.4.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.1'
 
-//    implementation 'com.github.AlanCheen.OnePiece:pandora:1.0.0'
-//    implementation 'com.github.AlanCheen.OnePiece:foundation:1.0.0'
-//    implementation 'com.github.AlanCheen.OnePiece:fantasy:1.0.0'
-
-    implementation project(path: ':pandora')
-    implementation project(path: ':fantasy')
+    implementation project(path: ':arch-clean')
     implementation project(path: ':arch-core')
     implementation project(path: ':arch-func')
+    implementation project(path: ':arch-mvi')
+    implementation project(path: ':arch-mvvm')
+    implementation project(path: ':fantasy')
+    implementation project(path: ':foundation')
+    implementation project(path: ':pandora')
+
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-//    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-
 }

@@ -4,8 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import me.yifeiyuan.onepiece.dev.test.TestLiveComponents
-import me.yifeiyuan.onepiece.func.IntFunc
-import me.yifeiyuan.onepiece.func.ValueFunc
+import me.yifeiyuan.onepiece.arch.func.IntFunc
+import me.yifeiyuan.onepiece.arch.func.ValueFunc
 import me.yifeiyuan.onepiece.pandora.ktx.*
 
 class MainActivity : AppCompatActivity() {

@@ -8,8 +8,6 @@ import me.yifeiyuan.onepiece.dev.data.HomeRepository
 class HomeUserCase(private val repository: HomeRepository = HomeRepository()) {
 
     fun getHomePageData() {
-        TODO("Not yet implemented")
     }
-
 
 }

@@ -22,11 +22,8 @@ class MainActivity : AppCompatActivity() {
         s.runAs<String> {
 
         }
-        s.ifBlank {
-
-        }
         s.ifEmpty {
-
+            ""
         }
         tryCatch {
 

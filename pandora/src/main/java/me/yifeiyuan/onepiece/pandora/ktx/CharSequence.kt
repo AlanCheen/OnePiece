@@ -2,6 +2,7 @@ package me.yifeiyuan.onepiece.pandora.ktx
 
 import android.text.SpannableString
 import android.text.SpannableStringBuilder
+import android.text.TextUtils
 import android.widget.TextView
 
 /**
@@ -9,12 +10,12 @@ import android.widget.TextView
  */
 
 //已经有 ifEmpty 了
-//fun CharSequence.ifEmpty(func: () -> CharSequence?): CharSequence? {
-//    if (isEmpty()) {
-//        return func()
-//    }
-//    return this
-//}
+fun CharSequence.ifEmpty(func: () -> CharSequence): CharSequence {
+    if (TextUtils.isEmpty(this)) {
+        return func()
+    }
+    return this
+}
 
 
 fun CharSequence.toSpannableStringBuilder(builder: SpannableStringBuilder.() -> Unit): SpannableStringBuilder {

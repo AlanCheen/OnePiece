@@ -25,17 +25,18 @@ class MainActivity : AppCompatActivity() {
         s.ifEmpty {
             ""
         }
-        tryCatch {
+        tryExecute {
 
         }
 
-        tryCatch(
+        tryExecute(
             { e ->
                 e.printStackTrace()
             },
             {
 
-            }) {
+            }
+        ) {
         }
     }
 
@@ -81,7 +82,7 @@ class MainActivity : AppCompatActivity() {
         intFunc()
     }
 
-    private fun testValueBlock(p:String ,valueBlock: ValueFunc<String?>){
+    private fun testValueBlock(p: String, valueBlock: ValueFunc<String?>) {
         val result = valueBlock()
 
     }

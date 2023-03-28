@@ -1,3 +1,4 @@
+include ':arch-ability'
 include ':multistatelayout'
 include ':arch-clean'
 include ':arch-mvvm'

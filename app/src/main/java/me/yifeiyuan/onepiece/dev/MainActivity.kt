@@ -3,6 +3,7 @@ package me.yifeiyuan.onepiece.dev
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import me.yifeiyuan.onepiece.arch.ability.AbilityManager
 import me.yifeiyuan.onepiece.dev.test.TestLiveComponents
 import me.yifeiyuan.onepiece.arch.func.IntFunc
 import me.yifeiyuan.onepiece.arch.func.ValueFunc
@@ -38,6 +39,8 @@ class MainActivity : AppCompatActivity() {
             }
         ) {
         }
+
+        AbilityManager.register(ToastAbility::class.java, ToastAbilityImpl())
     }
 
     fun testContext() {
@@ -65,6 +68,7 @@ class MainActivity : AppCompatActivity() {
             "android"
         }
 
+        AbilityManager.getAbility(ToastAbility::class.java).show("Toast Ability test")
     }
 
 

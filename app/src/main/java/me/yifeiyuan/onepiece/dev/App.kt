@@ -1,6 +1,7 @@
 package me.yifeiyuan.onepiece.dev
 
 import android.app.Application
+import android.content.Context
 import android.content.res.Configuration
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStore
@@ -13,8 +14,13 @@ class App : Application(), ViewModelStoreOwner {
 
     val appViewModelStore = ViewModelStore()
 
+    companion object{
+        lateinit var application : Context
+    }
+
     override fun onCreate() {
         super.onCreate()
+        application = this
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {

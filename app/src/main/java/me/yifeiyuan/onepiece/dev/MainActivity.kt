@@ -68,7 +68,7 @@ class MainActivity : AppCompatActivity() {
             "android"
         }
 
-        AbilityManager.getAbility(ToastAbility::class.java).show("Toast Ability test")
+        AbilityManager.getAbility(ToastAbility::class.java)?.show("Toast Ability test")
     }
 
 

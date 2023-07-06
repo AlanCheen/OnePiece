@@ -2,8 +2,11 @@ package me.yifeiyuan.onepiece.pandora.ktx
 
 import android.app.Activity
 import android.content.Context
+import android.graphics.Color
+import android.os.Build
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 
 /**
@@ -58,3 +61,18 @@ fun Activity.hideSoftInput(flag: Int = InputMethodManager.HIDE_NOT_ALWAYS) {
  * with the android.R.id.content ID.
  */
 fun Activity.getRootView(): ViewGroup = window.decorView.findViewById(android.R.id.content)
+
+/**
+ * 沉浸式&全屏 todo test
+ */
+//fun Activity.enableImmersiveMode(){
+//    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+//        window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
+//        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+//        window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION)
+//        window.statusBarColor = Color.TRANSPARENT
+//    } else {
+//        window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+//    }
+//}

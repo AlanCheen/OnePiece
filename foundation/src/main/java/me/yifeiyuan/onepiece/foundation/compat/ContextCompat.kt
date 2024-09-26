@@ -8,10 +8,14 @@ import android.os.Build
 /**
  * Created by 程序亦非猿 on 7/6/23.
  */
-
-fun Context.registerReceiverCompat(receiver: BroadcastReceiver, filter: IntentFilter) {
+// TODO: 7/6/23 需要？ 
+fun Context.registerReceiverCompat(
+    receiver: BroadcastReceiver,
+    filter: IntentFilter,
+    flags: Int = 0x2
+) {
     if (Build.VERSION.SDK_INT >= 33) {
-        registerReceiver(receiver, filter, 0x2)
+        registerReceiver(receiver, filter, flags)
     } else {
         registerReceiver(receiver, filter)
     }
